@@ -1,0 +1,94 @@
+Not Found: /favicon.ico
+Not Found: /autodiscover/autodiscover.json
+Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Traceback (most recent call last):
+  File "/usr/local/lsws/Example/html/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lsws/Example/html/lib/python3.8/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/usr/local/lsws/Example/html/lib/python3.8/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lsws/Example/html/lib/python3.8/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: ''. The domain name provided is not valid according to RFC 1034/1035.
+Bad Request: /
+Not Found: /favicon.ico
+Not Found: /geoserver/web/
+Not Found: /favicon.ico
+Not Found: /shell
+Not Found: /owa/auth/logon.aspx
+Not Found: /druid/index.html
+Not Found: /aaa9
+Not Found: /aab8
+Not Found: /favicon.ico
+Not Found: /.env
+Not Found: /favicon.ico
+Not Found: /geoserver/web/
+Not Found: /.env
+Forbidden (CSRF cookie not set.): /
+Not Found: /.env
+Forbidden (Referer checking failed - no Referer.): /
+Not Found: /favicon.ico
+Not Found: /robots.txt
+Not Found: /6ihPa7p8rK1uJVcyxQwDZMg5dnM
+Not Found: /.env
+Not Found: /wp-content/
+Not Found: /boaform/admin/formLogin
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /.vscode/sftp.json
+Not Found: /about
+Not Found: /.vscode/sftp.json
+Not Found: /.vscode/sftp.json
+Not Found: /debug/default/view
+Not Found: /about
+Not Found: /about
+Not Found: /.vscode/sftp.json
+Not Found: /v2/_catalog
+Not Found: /debug/default/view
+Not Found: /debug/default/view
+Not Found: /about
+Not Found: /v2/_catalog
+Not Found: /v2/_catalog
+Not Found: /debug/default/view
+Not Found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+Not Found: /v2/_catalog
+Not Found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+Not Found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+Not Found: /server-status
+Not Found: /server-status
+Not Found: /server-status
+Not Found: /login.action
+Not Found: /login.action
+Not Found: /login.action
+Not Found: /_all_dbs
+Not Found: /_all_dbs
+Not Found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application
+Not Found: /_all_dbs
+Not Found: /.DS_Store
+Not Found: /.DS_Store
+Not Found: /server-status
+Not Found: /.DS_Store
+Not Found: /.env
+Not Found: /.env
+Not Found: /login.action
+Not Found: /.env
+Not Found: /.git/config
+Not Found: /.git/config
+Not Found: /.git/config
+Not Found: /_all_dbs
+Not Found: /s/933313e2433313e27363e2237313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties
+Not Found: /s/933313e2433313e27363e2237313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties
+Not Found: /.DS_Store
+Not Found: /s/0363e263e21323e2430313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties
+Not Found: /config.json
+Not Found: /config.json
+Not Found: /config.json
+Not Found: /.env
+Not Found: /telescope/requests
+Not Found: /telescope/requests
+Not Found: /telescope/requests
+Not Found: /.git/config
+Not Found: /s/0363e263e21323e2430313/_/;/META-INF/maven/com.atlassian.jira/jira-webapp-dist/pom.properties
+Not Found: /config.json
+Not Found: /telescope/requests
