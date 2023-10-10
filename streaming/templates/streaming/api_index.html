@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Endpoints</title>
+</head>
+<body>
+
+{% block content %}
+<h1>API Endpoints</h1>
+
+<ul>
+    <li><a href="{% url 'video-list' %}">Videos</a></li>
+    <li><a href="{% url 'actor-list' %}">Actors</a></li>
+    <li><a href="{% url 'rating-list' %}">Ratings</a></li>
+    <!-- Add other endpoints as needed -->
+</ul>
+{% endblock %}
+
+
+</body>
+</html>
