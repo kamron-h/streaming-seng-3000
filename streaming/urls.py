@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app import views
-# from streaming import views as stream_views
+from streaming import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('streaming/', include('streaming.urls')),
-    path('admin/', admin.site.urls),
+    path('', views.home, name='streaming_home'),
+    path('demo/', include('demo.urls')),
+    # path('admin/', admin.site.urls),
 ]
