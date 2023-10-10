@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'streaming/templates/home.html')
+    return render(request, 'home.html')
