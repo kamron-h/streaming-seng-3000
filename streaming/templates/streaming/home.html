@@ -1,12 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Theater</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body style="background-color: forestgreen">
+<body>
+<!-- Button for Actors and Videos list -->
+<a href="/stream">
+    <button type="button">Actors and Videos List</button>
+</a>
 
-<h1 style="text-align: center;color: white">Theater</h1>
+<!-- Button for API Index list -->
+<a href="/api/">
+    <button type="button">API Index</button>
+</a>
+
+
 
 </body>
 </html>

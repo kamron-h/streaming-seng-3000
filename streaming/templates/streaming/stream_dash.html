@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stream</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>~~ CRUD OPERATIONS ~~</h1>
+        </div>
+    </div>
+</div>
+{% block content %}
+
+<!-- SECTION FOR VIDEOS -->
+
+<h3 style="color: #00363a">Videos</h3>
+
+<!-- Create (POST) Form for Videos -->
+<h5>Create New Video</h5>
+<form method="post" action="/api/videos/" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ video_form.as_p }}
+    <button type="submit">Create Video</button>
+</form>
+
+<!-- Update (PUT) Form for Videos -->
+<h5>Update Existing Video</h5>
+<form method="post" action="/api/videos/{{ video_id }}/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="_method" value="PUT">
+    Video ID: <input type="text" name="video_id" value="{{ video_id }}">
+    {{ video_form.as_p }}
+    <button type="submit">Update Video</button>
+</form>
+
+<!-- Delete (DELETE) Buttons for Videos -->
+<h5>Delete Video</h5>
+{% for video in videos %}
+    <form method="post" action="/api/videos/{{ video.id }}/">
+        {% csrf_token %}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete Video {{ video.id }}</button>
+    </form>
+{% endfor %}
+
+<!-- List (GET) of all Videos -->
+<h5>List of All Videos</h5>
+<ul>
+{% for video in videos %}
+    <li>Title : {{ video }} <br><span style="color: grey"> Actors : </span>
+{% for actor in video.actors.all %}
+    <span style="color: lightgray">{{ actor.name }},</span>
+{% endfor %}
+</li>
+{% endfor %}
+</ul>
+
+    <hr>
+<!-- SECTION FOR ACTORS -->
+
+<h3 style="color: #f5dd5d">Actors</h3>
+
+<!-- Create (POST) Form for Actors -->
+<h5>Create New Actor</h5>
+<form method="post" action="/api/actors/" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ actor_form.as_p }}
+    <button type="submit">Create Actor</button>
+</form>
+
+<!-- Update (PUT) Form for Actors -->
+<h5>Update Existing Actor</h5>
+<form method="post" action="/api/actors/{{ actor_id }}/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="_method" value="PUT">
+    Actor ID: <input type="text" name="actor_id" value="{{ actor_id }}">
+    {{ actor_form.as_p }}
+    <button type="submit">Update Actor</button>
+</form>
+
+<!-- Delete (DELETE) Buttons for Actors -->
+<h5>Delete Actor</h5>
+{% for actor in actors %}
+    <form method="post" action="/api/actors/{{ actor.id }}/">
+        {% csrf_token %}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete Actor {{ actor.id }}</button>
+    </form>
+{% endfor %}
+
+<!-- List (GET) of all Actors -->
+<h5>List of All Actors</h5>
+<ul>
+{% for actor in actors %}
+    <li>{{ actor }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
+</body>
+</html>

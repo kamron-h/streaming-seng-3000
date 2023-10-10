@@ -20,5 +20,6 @@ from streaming import views
 urlpatterns = [
     path('', views.home, name='streaming_home'),
     path('demo/', include('demo.urls')),
-    # path('admin/', admin.site.urls),
+    path('index/', views.api_index, name='api_index'),
+    path('dash/', views.stream_dash, name='stream_dash'),
 ]
