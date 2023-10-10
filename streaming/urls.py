@@ -21,5 +21,5 @@ urlpatterns = [
     path('', views.home, name='streaming_home'),
     path('demo/', include('demo.urls')),
     path('index/', views.api_index, name='api_index'),
-    path('dash/', views.stream_dash, name='stream_dash'),
+    path('dash/', views.stream_dash, name='streaming_dash'),
 ]
