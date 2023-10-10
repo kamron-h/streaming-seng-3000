@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+
+{% block content %}
+
 <!-- Button for Actors and Videos list -->
-<a href="/stream">
+<a href="{% url 'dash' %}">
     <button type="button">Actors and Videos List</button>
 </a>
 
 <!-- Button for API Index list -->
-<a href="/api/">
+<a href="{% url 'api_index' %}">
     <button type="button">API Index</button>
 </a>
 
+
+
+{% endblock %}
 
 
 </body>
