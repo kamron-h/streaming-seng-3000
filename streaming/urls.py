@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from streaming import views
+# from streaming import views_api as api_views
 
 urlpatterns = [
     path('', views.home, name='streaming_home'),
     path('demo/', include('demo.urls')),
     path('index/', views.api_index, name='api_index'),
-    path('dash/', views.stream_dash, name='streaming_dash'),
+    path('dash/', views.stream_dash, name='api_dash'),
 ]
