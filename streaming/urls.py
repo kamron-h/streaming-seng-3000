@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls')
 """
-from django.contrib import admin
+# from django.contrib import admin
 from django.urls import path, include
 from streaming import views
 # from streaming import views_api as api_views
@@ -23,5 +23,4 @@ urlpatterns = [
     path('demo/', include('demo.urls')),
     path('index/', views.api_index, name='api_index'),
     path('crud/', views.crud, name='crud'),
-    # path('idex/crud/', views.crud, name='crud'),
 ]
