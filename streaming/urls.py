@@ -22,5 +22,17 @@ app_name = 'streaming'
 urlpatterns = [
     path('', views.home, name='home'),
     path('index/', views.api_index, name='api_index'),
-    path('crud/', views.crud, name='crud'),
+    # path('crud/', views.crud, name='crud'),
+    # path('crud/<str:model_type>/', views.crud, name='crud'),
+    # path('crud/<str:model_type>/<int:entry_id>/', views.crud, name='crud'),
+    # path('api/', include('streaming.urls_api', namespace='api')),
+    path('api/', views.api_main, name='api_main'),
+    path('api/crud/', views.crud, name='crud'),
+
+    path('genres/', views.genres, name='genre_list'),
+    path('movies/', views.movie_list, name='movie_list'),
+    path('shows/', views.tv_list, name='tv_list'),
+    path('video/', views.video_detail, name='video_detail'),
+    # path('video/<int:video_id>/', views.video_detail, name='video_detail'),
+    path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
 ]
