@@ -31,26 +31,23 @@
 </head>
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background-color: #f4f2f2;">
   <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#">DjangoStream</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div class="container"><a class="navbar-brand" href="{% url 'streaming:home' %}">DjangoStream</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="movie-list.html">Movies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tv-list.html">TV Shows</a></li>
-                    <li class="nav-item"><a class="nav-link" href="genres.html">genres</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="api-main.html">API</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'streaming:home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'streaming:movie_list' %}">Movies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'streaming:tv_list' %}">TV Shows</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'streaming:genre_list' %}">genres</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'streaming:api_main' %}">API</a></li>
                 </ul>
             </div>
         </div>
     </nav><!-- Start: Hero Carousel -->
 
-
-{% block content %}
+  {% block carousel %}
   <div class="carousel slide" data-bs-ride="carousel" id="carousel-1" style="height: 600px;">
         <div class="carousel-inner h-100 home-cover">
-            <div class="carousel-item active h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="{% static 'assets/img/mov_cover/partisan_1dark.jpeg' %}" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
+            <div class="carousel-item active h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/1b00b26f-e70e-4db2-8c98-33928de5e300/public" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
                 <div class="container d-flex flex-column justify-content-center h-100">
                     <div class="row">
                         <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
@@ -69,13 +66,13 @@
                                             <p>Alexander, a boy raised in a secluded commune, finds himself at odds with Gregori, the society's charismatic leader. As he begins to question the community's ways, his increasing unwillingness to conform puts him on a collision course with Gregori, leading to a tense and dramatic confrontation.</p>
                                         </div>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
+                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' %}">Watch Now</a>
                             </div>
                         </div>
                     </div>
                 </div><!-- End: 1 Row 1 Column -->
             </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="{% static 'assets/img/mov_cover/training_day_coverdark.webp' %}" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
+            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/9b865786-cc90-489f-e043-e5ee31c0e200/public" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
                 <div class="container d-flex flex-column justify-content-center h-100">
                     <div class="row">
                         <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
@@ -94,13 +91,13 @@
                                             <p>A rookie cop spends his first day as a Los Angeles narcotics officer with a rogue detective who isn't what he appears to be. As the day progresses, he realizes the harrowing depths of corruption and moral ambiguity that come with the badge.</p>
                                         </div>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
+                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' %}">Watch Now</a>
                             </div>
                         </div>
                     </div>
                 </div><!-- End: 1 Row 1 Column -->
             </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/roadwarrior_dark.png" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
+            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/70892d82-ea73-4b62-5b37-630680025c00/public" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
                 <div class="container d-flex flex-column justify-content-center h-100">
                     <div class="row">
                         <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
@@ -119,13 +116,13 @@
                                             <p class="video-list-cover-descrip">In a post-apocalyptic world on the brink of chaos, a vengeful Australian policeman named Max sets out on a mission to stop a violent motorcycle gang. As law and order crumble, Max's pursuit becomes a high-octane battle for survival on the desolate roads.</p>
                                         </div>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
+                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' %}">Watch Now</a>
                             </div>
                         </div>
                     </div>
                 </div><!-- End: 1 Row 1 Column -->
             </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/alien_cover_0dark.webp" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
+            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/e9ab6175-d223-4c8a-6547-6cef0078de00/public" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
                 <div class="container d-flex flex-column justify-content-center h-100">
                     <div class="row">
                         <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
@@ -144,13 +141,13 @@
                                             <p>The crew of a commercial spacecraft encounters a deadly life-form after investigating an unknown transmission. As they navigate the confines of their ship, they quickly realize that they are not alone, and the alien being aboard is a perfect predator, unclouded by conscience, remorse, or any form of morality.</p>
                                         </div>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
+                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' %}">Watch Now</a>
                             </div>
                         </div>
                     </div>
                 </div><!-- End: 1 Row 1 Column -->
             </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/colors_0dark.jpeg" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
+            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/60164bbc-9872-4b1f-0a36-3a76b9b2d100/public" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
                 <div class="container d-flex flex-column justify-content-center h-100">
                     <div class="row">
                         <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
@@ -169,13 +166,13 @@
                                             <p>After years in hiding due to her superhuman abilities, a woman is forced to go on the run. Her past catches up with her, and the only refuge she has left is her family home. As she confronts her powers and her past, she must decide whether to keep running or face the consequences.</p>
                                         </div>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
+                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' %}">Watch Now</a>
                             </div>
                         </div>
                     </div>
                 </div><!-- End: 1 Row 1 Column -->
             </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/black-monday-2dark.jpeg" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
+            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/82df8574-44dd-46f2-4560-7a39b31ea100/public" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
                 <div class="container d-flex flex-column justify-content-center h-100">
                     <div class="row">
                         <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
@@ -194,7 +191,7 @@
                                             <p>Dive into the world of Wall Street in the 1980s, where a group of outsiders challenges the old-boys club. As they navigate the highs and lows of the financial world, they uncover secrets, scandals, and the dark side of ambition.</p>
                                         </div>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
+                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' %}">Watch Now</a>
                             </div>
                         </div>
                     </div>
@@ -207,6 +204,10 @@
         </div>
         <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="3"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="4"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="5"></button></div>
     </div><!-- End: Hero Carousel -->
+    {% endblock %}
+
+
+{% block content %}
 {% endblock %}
   <div class="footer-2">
         <div class="container">
@@ -215,7 +216,7 @@
                     <p class="text-start" style="margin-top:5%;margin-bottom:3%;">© 2023 Kamron H.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6">
-                    <p class="text-end" style="margin-top:5%;margin-bottom:8%%;font-size:1em;"><a href="privacy-p.html">Privacy Policy</a></p>
+                    <p class="text-end" style="margin-top:5%;margin-bottom:8%%;font-size:1em;"><a href="{% url 'streaming:privacy_policy' %}">Privacy Policy</a></p>
                 </div>
             </div>
         </div>

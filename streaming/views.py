@@ -58,3 +58,40 @@ def api_index(request):
 
 def home(request):
     return render(request, 'streaming/home.html')
+
+
+def api_main(request):
+    return render(request, 'streaming/api_main.html')
+
+
+def api_crud(request):
+    return render(request, 'streaming/api_crud.html')
+
+
+def crud(request):
+    return render(request, 'streaming/crud.html')
+
+
+def genres(request):
+    return render(request, 'streaming/genres.html')
+
+
+def movie_list(request):
+    return render(request, 'streaming/movie_list.html')
+
+
+def tv_list(request):
+    return render(request, 'streaming/tv_list.html')
+
+
+def video_detail(request):
+    return render(request, 'streaming/video_detail.html')
+
+
+# def video_detail(request, video_id):
+#     video = get_object_or_404(Video, pk=video_id)
+#     return render(request, 'streaming/video_detail.html', {'video': video})
+
+
+def privacy_policy(request):
+    return render(request, 'streaming/privacy_p.html')
