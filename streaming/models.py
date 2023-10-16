@@ -47,6 +47,7 @@ class Genre(models.Model):
     def __str__(self):
         return self.genre
 
+
 #
 # class Director(models.Model):
 #     name = models.CharField(max_length=100)
@@ -72,3 +73,32 @@ class Playlist(models.Model):
 
     def __str__(self):
         return self.name
+
+    GENRES = [
+        ('Action', 'Action'),
+        ('Adventure', 'Adventure'),
+        ('Animation', 'Animation'),
+        ('Biography', 'Biography'),
+        ('Comedy', 'Comedy'),
+        ('Crime', 'Crime'),
+        ('Documentary', 'Documentary'),
+        ('Drama', 'Drama'),
+        ('Family', 'Family'),
+        ('Fantasy', 'Fantasy'),
+        ('Film-Noir', 'Film-Noir'),
+        ('History', 'History'),
+        ('Horror', 'Horror'),
+        ('Music', 'Music'),
+        ('Musical', 'Musical'),
+        ('Mystery', 'Mystery'),
+        ('Romance', 'Romance'),
+        ('Sci-Fi', 'Sci-Fi'),
+        ('Sport', 'Sport'),
+        ('Thriller', 'Thriller'),
+        ('War', 'War'),
+        ('Western', 'Western'),
+        ('Journalism', 'Journalism'),
+        ('Black Exploitation', 'Black Exploitation'),
+        ('Editors Favorite', 'Editors Favorite'),
+        ('Other', 'Other'),
+    ]

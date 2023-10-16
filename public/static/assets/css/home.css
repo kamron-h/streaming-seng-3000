@@ -1,0 +1,106 @@
+.home-cover {
+  color: white;
+  /*background-color: rgba(0,0,0,0.5);*/
+}
+
+a {
+  text-decoration: none;
+}
+
+.home-cover-badge {
+  background-color: rgba(255,255,255,0.2) !important;
+}
+
+.home-cover-title {
+}
+
+.home-cover-descrip {
+}
+
+.home-cover-p {
+}
+
+.home-cover-btn {
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.home-tab-items {
+  border-color: transparent;
+}
+
+.home-view-more {
+  padding: 0 6px;
+  font-size: x-small;
+  color: #000000;
+}
+
+.home-card {
+  margin-bottom: 14px;
+  border-color: transparent;
+}
+
+.home-card-body {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 6px;
+  padding-right: 10px;
+}
+
+.home-card-title {
+  font-size: 11px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+@media (min-width: 576px) {
+  .home-card-title {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-card-title {
+    font-size: 14px;
+  }
+}
+
+.home-card-title {
+}
+
+.home-card-p {
+  font-size: x-small;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.home-card-top-badge {
+  font-size: x-small;
+  background-color: var(--bs-tertiary-color) !important;
+  margin-left: -10px;
+}
+
+.home-card-bottom-badge {
+  font-size: xx-small;
+  background-color: rgba(0,0,0,0.25) !important;
+}
+
+.home-paginator {
+  padding-top: 22px;
+}
+
+.nav-tabs .nav-link.active.home-tab {
+  border-color: transparent;
+  border-radius: 21px;
+  font-family: 'Kaushan Script';
+}
+
+.nav-tabs .nav-link.home-tab {
+  font-family: 'Kaushan Script';
+  color: black;
+}
+
+.nav-tabs .nav-link.home-tab:hover {
+  color: #ed0000;
+}
+

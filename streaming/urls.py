@@ -18,9 +18,9 @@ from django.urls import path, include
 from streaming import views
 # from streaming import views_api as api_views
 
+app_name = 'streaming'
 urlpatterns = [
-    path('', views.home, name='streaming_home'),
-    path('demo/', include('demo.urls')),
+    path('', views.home, name='home'),
     path('index/', views.api_index, name='api_index'),
     path('crud/', views.crud, name='crud'),
 ]

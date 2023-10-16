@@ -1,0 +1,171 @@
+#portfolio .portfolio-item .portfolio-link .portfolio-hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all ease .5s;
+  opacity: 0;
+  background: rgba(234,175,15,0.13);
+}
+
+#portfolio .portfolio-item .portfolio-link {
+  color: var(--bs-emphasis-color);
+  text-decoration: none;
+}
+
+.movie-card {
+  border-radius: 6px;
+}
+
+.movie-card-btm {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* MODAL POP UP */
+
+.vid-frame {
+  width: 96%;
+}
+
+@media (min-width: 576px) {
+  .vid-frame {
+    height: 270px;
+  }
+}
+
+@media (min-width: 768px) {
+  .vid-frame {
+    height: 378px;
+  }
+}
+
+@media (min-width: 992px) {
+  .vid-frame {
+    height: 466px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .vid-frame {
+    height: 544px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .vid-frame {
+    height: 620px;
+  }
+}
+
+/* 16:9 Video and Images */
+
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+.aspect-ratio-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+div {
+}
+
+/* 1:1 Card Image */
+
+.card-img.square {
+  width: 100%;
+  padding-top: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* 16:9 Card Image */
+
+.card-img {
+  width: 100%;
+  padding-top: 150%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.card-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* Video Card Widgets */
+
+.video-view-more {
+  padding: 0 6px;
+  font-size: x-small;
+  color: #000000;
+}
+
+.video-card-body {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 6px;
+  padding-right: 10px;
+}
+
+.video-card-title {
+  font-size: 11px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+@media (min-width: 576px) {
+  .video-card-title {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 992px) {
+  .video-card-title {
+    font-size: 14px;
+  }
+}
+
+.video-card-p {
+  font-size: x-small;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.video-card-top-badge {
+  font-size: x-small;
+  background-color: var(--bs-tertiary-color) !important;
+  margin-left: -10px;
+}
+
+.video-card-bottom-badge {
+  font-size: xx-small;
+  background-color: rgba(0,0,0,0.25) !important;
+}
+
+.video-card-id {
+  padding-top: 14px;
+  font-weight: bold;
+}
+
+.video-paginator {
+  padding-top: 22px;
+}
+

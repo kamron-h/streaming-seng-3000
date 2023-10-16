@@ -1,0 +1,39 @@
+.crud-heading {
+  padding-bottom: 6px;
+}
+
+.crud-subhead {
+  padding-bottom: 5px;
+  padding-top: 17px;
+}
+
+.crud-p {
+}
+
+.crud-btn {
+}
+
+.crud-input {
+  margin-right: 6px;
+}
+
+.crud-card-subhead {
+  font-size: smaller;
+}
+
+.crud-card-p {
+  font-size: smaller;
+}
+
+.crud-movie-card {
+  margin: 4px 1px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 7px;
+  border-color: rgba(238,13,13,0.5);
+  /*border-width: 2px !important;*/
+}
+
+.actor-card-h {
+  min-height: 46px;
+}
+

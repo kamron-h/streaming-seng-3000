@@ -1,0 +1,100 @@
+#carousel-1 {
+  margin-top: 3em;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  #carousel-1 {
+    margin-top: 6em !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #carousel-1 {
+    margin-top: 6.5em !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  #carousel-1 {
+    margin-top: 5em !important;
+  }
+}
+
+.filter-word {
+  /*display: none;*/
+}
+
+@media (min-width: 576px) {
+  .filter-word {
+    display: initial;
+  }
+}
+
+.video-list-cover {
+  color: white;
+  /*background-color: rgba(0,0,0,0.5);*/
+}
+
+a {
+  text-decoration: none;
+}
+
+.video-list-cover-badge {
+  background-color: rgba(255,255,255,0.2) !important;
+}
+
+.video-list-cover-title {
+}
+
+.video-list-cover-descrip {
+}
+
+.video-list-cover-p {
+}
+
+.video-list-cover-btn {
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.video-card {
+  margin-bottom: 14px;
+  border-color: transparent;
+}
+
+.video-card-body {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 6px;
+  padding-right: 10px;
+}
+
+.video-card-title {
+  font-size: small;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.video-card-p {
+  font-size: x-small;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.video-card-top-badge {
+  font-size: x-small;
+  background-color: var(--bs-tertiary-color) !important;
+  padding-top: 0px !important;
+  padding-left: 0px;
+}
+
+.video-card-bottom-badge {
+  font-size: xx-small;
+  background-color: rgba(0,0,0,0.25) !important;
+}
+
+.video-list-paginator {
+  padding-top: 22px;
+}
+

@@ -19,9 +19,10 @@ from app import views
 from streaming import views as stream_views
 
 urlpatterns = [
-    # path('', views.index, name='index'),
-    # path('streaming/', include('streaming.urls')),
     path('', include('streaming.urls')),
     path('api/', stream_views.api_index, name='api_index'),
     path('admin/', admin.site.urls),
 ]
+
+# path('', views.index, name='index'),
+# path('streaming/', include('streaming.urls')),
