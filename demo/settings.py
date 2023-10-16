@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+from private.hidden import SECRET_KEY_HIDDEN, PSQL_DB_NAME, PSQL_USER_HIDDEN, PSQL_PASSWORD_HIDDEN, PSQL_HOST_HIDDEN, \
+    PSQL_PORT_HIDDEN
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&KYuo!ms23:O&GDV;.mV(Astv=a-H~ii}d?>aC1Z!u)Il~0m*)'
+SECRET_KEY = SECRET_KEY_HIDDEN
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,10 +79,18 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': PSQL_DB_NAME,
+        'USER': PSQL_USER_HIDDEN,
+        'PASSWORD': PSQL_PASSWORD_HIDDEN,
+        'HOST': PSQL_HOST_HIDDEN,
+        'PORT': PSQL_PORT_HIDDEN,
     }
 }
+# 'default': {
+#     'ENGINE': 'django.db.backends.sqlite3',
+#     'NAME': BASE_DIR / 'db.sqlite3',
+# },
 
 
 # Password validation
@@ -117,6 +128,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "public/static"),
+]
 
 STATIC_URL = 'static/'
 
@@ -124,4 +138,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+APPEND_SLASH = True
 STATIC_ROOT = '/usr/local/lsws/Example/html/demo/public/static'
