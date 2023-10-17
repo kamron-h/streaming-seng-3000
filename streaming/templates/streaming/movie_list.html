@@ -1,44 +1,18 @@
-<!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+{% extends 'streaming/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/crud.css">
-    <link rel="stylesheet" href="assets/css/Hero-Carousel-images.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/media-details.css">
-    <link rel="stylesheet" href="assets/css/privacy-p.css">
-    <link rel="stylesheet" href="assets/css/simple-footer.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider-swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
-    <link rel="stylesheet" href="assets/css/untitled-1.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
-    <link rel="stylesheet" href="assets/css/video-details.css">
-    <link rel="stylesheet" href="assets/css/video-list.css">
-</head>
+{% block head %}
+<title>Movies</title>
+<!--    <link rel="stylesheet" href="{% static 'assets/css/media-details.css' %}">-->
+    <link rel="stylesheet" href="{% static 'assets/css/Simple-Slider-swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Simple-Slider.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'assets/css/untitled.css' %}">-->
+    <link rel="stylesheet" href="{% static 'assets/css/video-details.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/video-list.css' %}">
+{% endblock %}
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
-    <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#">DjangoStream</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="genres.html">Movies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">TV Shows</a></li>
-                    <li class="nav-item"><a class="nav-link" href="genres.html">genres</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="api-main.html">API</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav><!-- Start: Hero Carousel -->
+{% block carousel %}
+<!-- Start: Hero Carousel -->
     <div class="carousel slide" data-bs-ride="carousel" id="carousel-1" style="height: 600px;">
         <div class="carousel-inner h-100 home-cover">
             <div class="carousel-item active h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="mov_cover/training_day_cover-1.webp" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
@@ -122,8 +96,12 @@
             <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a><!-- End: Next -->
         </div>
         <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button></div>
-    </div><!-- End: Hero Carousel -->
-    <div class="container">
+    </div>
+<!-- End: Hero Carousel -->
+{% endblock %}
+
+{% block content %}
+<div class="container">
         <!-- Start: Trending Row -->
         <div class="row" style="padding-top: 5em;">
             <div class="col-7 col-sm-6 d-flex justify-content-start">
@@ -378,22 +356,4 @@
             </div><!-- End: Bottom Pagination -->
         </div><!-- End: Trending Row -->
     </div>
-    <section class="bg-light" id="portfolio"></section>
-    <section class="bg-light" id="team"></section>
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/creative-market.jpg"></a></div>
-                <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/designmodo.jpg"></a></div>
-                <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/envato.jpg"></a></div>
-                <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/themeforest.jpg"></a></div>
-            </div>
-        </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/agency.js"></script>
-    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
-</body>
-
-</html>
+{% endblock %}
