@@ -1,12 +1,13 @@
 # serializers.py
 
 from rest_framework import serializers
-from .models import Video, Actor, Rating
+from .models import Movie, Actor, Rating, \
+    Show, Genre
 
 
-class VideoSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Video
+        model = Movie
         fields = '__all__'  # use all fields from the Video model
 
 
@@ -22,3 +23,17 @@ class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = '__all__'  # use all fields from the Rating model
+
+
+# Serializer for Show model
+class ShowSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Show
+        fields = '__all__'  # use all fields from the Show model
+
+
+# Serializer for Genre model
+class GenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Genre
+        fields = '__all__'  # use all fields from the Genre model

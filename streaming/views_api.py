@@ -1,13 +1,14 @@
 # views_api.py
 
 from rest_framework import viewsets
-from .models import Video, Actor, Rating
-from .serializers import VideoSerializer, ActorSerializer, RatingSerializer
+from .models import Movie, Actor, Rating, Show, Genre
+from .serializers import MovieSerializer, ActorSerializer, RatingSerializer, \
+    ShowSerializer, GenreSerializer
 
 
-class VideoViewSet(viewsets.ModelViewSet):
-    queryset = Video.objects.all()
-    serializer_class = VideoSerializer
+class MovieViewSet(viewsets.ModelViewSet):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
 
 
 class ActorViewSet(viewsets.ModelViewSet):
@@ -19,3 +20,15 @@ class ActorViewSet(viewsets.ModelViewSet):
 class RatingViewSet(viewsets.ModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
+
+
+# Create ShowViewSet here
+class ShowViewSet(viewsets.ModelViewSet):
+    queryset = Show.objects.all()
+    serializer_class = ShowSerializer
+
+
+# Create GenreViewSet here
+class GenreViewSet(viewsets.ModelViewSet):
+    queryset = Genre.objects.all()
+    serializer_class = GenreSerializer
