@@ -5,8 +5,6 @@ B
 streaming/admin.py,2/2/22371806267fe8fb4fc994bdddb721ebe10a5089
 <
 app/views.py,e/9/e913ccab40768f150372ba07bcde59ca3139bca2
-L
-streaming/migrations/urls.py,b/1/b1ce6454c2ffc6eff5734091c51f1f30ee760b73
 <
 app/admin.py,7/a/7a71ff0529a453b99e6732ce3cd05945662ea467
 9
@@ -35,3 +33,30 @@ B
 	manage.py,3/1/3156ad13e4d695cd526bbb7b031016ecba842270
 <
 demo/urls.py,e/4/e4b400a6c9bab60b767ce058dc1eec89f244fe72
+\
+,streaming/templates/streaming/api_index.html,8/9/89ee3f3844c380d6500ff379f13fc5ff6fe72a46
+W
+'streaming/templates/streaming/crud.html,2/c/2c7860134ff7e756efe0d26380f2059ce5b1e84e
+Q
+!public/static/assets/css/home.css,3/b/3b49b669736ab73f6404ce129dc68892e2eca7fe
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+X
+(streaming/templates/streaming/index.html,5/a/5ad8ba8c1196bb734d4e7ebeef1319cc41ca0595
+Z
+*streaming/templates/streaming/example.html,d/4/d4e66fc91166efb5a9f826222be6834469b89d1d
+A
+private/hidden.py,e/4/e4ea08663c46d1bbb723655d31c500384f029cbc
+W
+'streaming/templates/streaming/base.html,f/8/f81a61ce031793a458a2bdf3c956049a4d89ad62
+]
+-streaming/templates/streaming/movie_list.html,0/f/0f2fe73910a1267d1e9207ac08059a3ee0752a9e
+B
+streaming/tests.py,0/9/09a140c4d884e30db59ac7006a0545dbb94fc5e5
+[
++streaming/templates/streaming/api_main.html,d/c/dc849af05132d4ab4bbc1f0a8502be8db6c56df2
+_
+/streaming/templates/streaming/video_detail.html,c/f/cf6e050fc26a541cefedc8c71363f2da3271faab
+[
++streaming/templates/streaming/api_crud.html,b/2/b24eb3899286a688fe2c0d945ec94cf14cf57890

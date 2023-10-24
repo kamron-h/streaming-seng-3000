@@ -1,53 +1,48 @@
-<!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+{% extends 'streaming/base.html' %}
+{% load static %}
+{% block head %}
+<title>{{ video.title }}</title>
+<!--    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">-->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">-->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/crud.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Hero-Carousel-images.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/home.css">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/media-details.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/privacy-p.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/simple-footer.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Simple-Slider-swiper-bundle.min.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/Simple-Slider.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/untitled-1.css' %}">-->
+<!--    <link rel="stylesheet" href="{% static 'assets/css/untitled.css' %}">-->
+    <link rel="stylesheet" href="{% static 'assets/css/video-details.css' %}">
+{% endblock %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/crud.css">
-    <link rel="stylesheet" href="assets/css/Hero-Carousel-images.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/media-details.css">
-    <link rel="stylesheet" href="assets/css/privacy-p.css">
-    <link rel="stylesheet" href="assets/css/simple-footer.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider-swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
-    <link rel="stylesheet" href="assets/css/untitled-1.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
-    <link rel="stylesheet" href="assets/css/video-details.css">
-    <link rel="stylesheet" href="assets/css/video-list.css">
-</head>
+{% block styles %}
+{% endblock %}
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
-    <div class="col" style="height: 55px;"></div>
-    <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#">DjangoStream</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive-1">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="genres.html">Movies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">TV Shows</a></li>
-                    <li class="nav-item"><a class="nav-link" href="genres.html">genres</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="api-main.html">API</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <ol class="breadcrumb details-breadcrumb" style="padding-top: 20px;">
-        <li class="breadcrumb-item"><a href="index.html"><span class="breadcrumb-blk">Home</span></a></li>
-        <li class="breadcrumb-item"><a href="movie-list.html"><span class="breadcrumb-blk">Movies</span></a></li>
-        <li class="breadcrumb-item"><a href="#"><span class="fw-bold">Training Day</span></a></li>
+{% block carousel %}
+{% endblock %}
+
+{% block content %}
+<div class="col" style="height: 55px;margin-top: 14px;margin-bottom: 14px;"></div>
+    <ol class="breadcrumb details-breadcrumb" style="padding-top: 20px;margin-left: 1em;">
+        <li class="breadcrumb-item"><a href="{% url 'streaming:home' %}"><span class="breadcrumb-blk">Home</span></a></li>
+        {% if video.type == 'Movie' %}
+            <li class="breadcrumb-item"><a href="{% url 'streaming:movie_list' %}"><span class="breadcrumb-blk">Movies</span></a></li>
+        {% else %}
+            <li class="breadcrumb-item"><a href="{% url 'streaming:tv_list' %}"><span class="breadcrumb-blk">TV Shows</span></a></li>
+        {% endif %}
+        <li class="breadcrumb-item"><span class="fw-bold">{{ video.title}}</span></li>
     </ol>
     <div class="container stream-frame">
-        <div class="aspect-ratio-box rounded-3"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/Mj_O4mb0u50" class="aspect-ratio-img" width="100%" height="auto"></iframe></div>
+        <div class="aspect-ratio-box rounded-3"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/{{ video.trailer_id }}" class="aspect-ratio-img" width="100%" height="auto"></iframe></div>
     </div>
+
+
+    {% if movie.type or show.type == 'Show' %}
+    <!-- TV Show Episode UI Elements Begin Here -->
     <div class="col" style="padding-left: 14px;">
         <div class="dropdown"><button class="btn btn-primary dropdown-toggle details-season-btn" aria-expanded="false" data-bs-toggle="dropdown" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-list-ol">
                     <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"></path>
@@ -55,7 +50,7 @@
                 </svg>&nbsp; Season 1&nbsp;</button>
             <div class="dropdown-menu"><a class="dropdown-item" href="#">Season 1</a><a class="dropdown-item" href="#">Season 2</a><a class="dropdown-item" href="#">Season 3</a></div>
         </div>
-        <div class="row ep-btn-row">
+        <div class="row ep-btn-row container">
             <!-- Start: Episode -->
             <div class="col-12 col-md-6 col-xl-4"><a href="#">
                     <p class="text-truncate ep-btn" title="A Stary Night at the Moonlight Moonlight">Ep. 1 - A Stary Night at the Moonlight&nbsp;<strong>Moonlight</strong></p>
@@ -89,16 +84,19 @@
                     <p class="text-truncate ep-btn">Ep. 1 - A Stary Night at the Moonlight&nbsp;<strong>Moonlight</strong></p>
                 </a></div><!-- End: Episode -->
         </div>
-        <hr>
     </div>
+    <!-- TV Show Episode UI Elements ENDS Here -->
+    {% endif %}
+
+    <hr>
     <div class="container">
         <div class="row">
-            <div class="col-3 col-xl-3 details-vid-cover"><img class="img-fluid rounded-2" src="assets/img/movies/Training_Day_Poster.jpeg"></div>
+            <div class="col-3 col-xl-3 details-vid-cover"><img class="img-fluid rounded-2" src="{{ video.thumbnail_url }}"></div>
             <div class="col-12 col-lg-9 col-xl-9">
                 <!-- Start: Heading Row -->
                 <div class="row">
                     <div class="col-12 col-lg-12">
-                        <h3 style="margin-top: 8px;">Training Day</h3>
+                        <h3 style="margin-top: 8px;">{{ movie.title }}</h3>
                     </div>
                     <div class="col-12">
                         <div class="row">
@@ -109,192 +107,135 @@
                                     </svg>&nbsp; 5.8</p>
                             </div>
                             <div class="col-5 col-sm-2 col-md-2 col-xl-8 d-xl-flex d-xxl-flex justify-content-xl-start">
-                                <p class="d-flex justify-content-center align-items-center" style="margin-bottom: 0;">262 min</p>
+                                {% if video.length %}
+                                <p class="d-flex justify-content-center align-items-center" style="margin-bottom: 0;">{{ video.length }}</p>
+                                {% endif %}
                             </div>
                         </div>
                     </div><!-- Start: Heading Row -->
                     <div class="col-12 col-xl-12">
-                        <p style="padding-top: 6px;"><strong><em><span style="color: rgb(32, 33, 34);">Training Day</span></em></strong><span style="color: rgb(32, 33, 34);">&nbsp;is a 2001 American&nbsp;</span><a href="https://en.wikipedia.org/wiki/Crime_thriller_film"><span style="color: rgb(51, 102, 204);">crime thriller film</span></a><span style="color: rgb(32, 33, 34);">&nbsp;directed by&nbsp;</span><a href="https://en.wikipedia.org/wiki/Antoine_Fuqua"><span style="color: rgb(51, 102, 204);">Antoine Fuqua</span></a><span style="color: rgb(32, 33, 34);">&nbsp;and written by&nbsp;</span><a href="https://en.wikipedia.org/wiki/David_Ayer"><span style="color: rgb(51, 102, 204);">David Ayer</span></a><span style="color: rgb(32, 33, 34);">. It stars&nbsp;</span><a href="https://en.wikipedia.org/wiki/Denzel_Washington"><span style="color: rgb(51, 102, 204);">Denzel Washington</span></a><span style="color: rgb(32, 33, 34);">&nbsp;as Alonzo Harris and&nbsp;</span><a href="https://en.wikipedia.org/wiki/Ethan_Hawke"><span style="color: rgb(51, 102, 204);">Ethan Hawke</span></a><span style="color: rgb(32, 33, 34);">&nbsp;as Jake Hoyt, two&nbsp;</span><a href="https://en.wikipedia.org/wiki/Los_Angeles_Police_Department"><span style="color: rgb(51, 102, 204);">LAPD</span></a><span style="color: rgb(32, 33, 34);">&nbsp;narcotics officers over a 24-hour period in the gang-ridden neighborhoods of&nbsp;</span><a href="https://en.wikipedia.org/wiki/Westlake,_Los_Angeles"><span style="color: rgb(51, 102, 204);">Westlake</span></a><span style="color: rgb(32, 33, 34);">,&nbsp;</span><a href="https://en.wikipedia.org/wiki/Echo_Park,_Los_Angeles"><span style="color: rgb(51, 102, 204);">Echo Park</span></a><span style="color: rgb(32, 33, 34);">, and&nbsp;</span><a href="https://en.wikipedia.org/wiki/South_Los_Angeles"><span style="color: rgb(51, 102, 204);">South Central Los Angeles</span></a><span style="color: rgb(32, 33, 34);">. It also features&nbsp;</span><a href="https://en.wikipedia.org/wiki/Scott_Glenn"><span style="color: rgb(51, 102, 204);">Scott Glenn</span></a><span style="color: rgb(32, 33, 34);">,&nbsp;</span><a href="https://en.wikipedia.org/wiki/Eva_Mendes"><span style="color: rgb(51, 102, 204);">Eva Mendes</span></a><span style="color: rgb(32, 33, 34);">,&nbsp;</span><a href="https://en.wikipedia.org/wiki/Cliff_Curtis"><span style="color: rgb(51, 102, 204);">Cliff Curtis</span></a><span style="color: rgb(32, 33, 34);">,&nbsp;</span><a href="https://en.wikipedia.org/wiki/Dr._Dre"><span style="color: rgb(51, 102, 204);">Dr. Dre</span></a><span style="color: rgb(32, 33, 34);">,&nbsp;</span><a href="https://en.wikipedia.org/wiki/Snoop_Dogg"><span style="color: rgb(51, 102, 204);">Snoop Dogg</span></a><span style="color: rgb(32, 33, 34);">, and&nbsp;</span><a href="https://en.wikipedia.org/wiki/Macy_Gray"><span style="color: rgb(51, 102, 204);">Macy Gray</span></a><span style="color: rgb(32, 33, 34);">&nbsp;in supporting roles.</span></p>
+                        <p style="padding-top: 6px;">
+<!--                            <strong><em><span style="color: rgb(32, 33, 34);">{{ movie.title }}</span></em></strong><span style="color: rgb(32, 33, 34);">&nbsp;is a 2001 American&nbsp;</span>-->
+                            <strong><em><span style="color: rgb(32, 33, 34);">{{ video.title }}</span></em></strong>
+                            <span style="color: rgb(32, 33, 34);">{{ video.description }}</span>
                     </div><!-- End: Heading Row -->
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Lead Actors&nbsp;:</p>
                     </div>
                     <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
-                        <p>Denzel</p>
+                        <p>{% for actor in video.cast.all %}
+                                {% if forloop.last %}<span title="{{ actor.bio }}"> {{ actor }}.</span>
+                                {% else %}<span title="{{ actor.bio }}"> {{ actor }}, </span>
+                                {% endif %}
+                            {% endfor %}</p>
                     </div>
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Genre&nbsp;:</p>
                     </div>
                     <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
-                        <p>Thriller, Black-Exploitation</p>
+                        <p>{% for genre in video.genres.all %}
+                                {% if forloop.last %}<span title="{{ genre.description }}"> {{ genre }}.</span>
+                                {% else %}<span title="{{ genre.description }}"> {{ genre }}, </span>
+                                {% endif %}
+                            {% endfor %}</p>
                     </div>
+
+                    {% if video.premier_date %}
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Released&nbsp;:</p>
                     </div>
                     <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
-                        <p>2001</p>
+                        <p>{{ video.premier_date }}</p>
                     </div>
+                    {% endif %}
+
+                    {% if video.country %}
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Country&nbsp;:</p>
                     </div>
                     <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
-                        <p>United States</p>
+                        <p>{% for country in video.country.all %}
+                                {% if forloop.last %}<span title="{{ country.description }}"> {{ country }}.</span>
+                                {% else %}<span title="{{ country.description }}"> {{ country }}, </span>
+                                {% endif %}
+                            {% endfor %}</p>
                     </div>
+                    {% endif %}
+
+                    {% if video.budget %}
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Budget&nbsp;:</p>
                     </div>
                     <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
-                        <p>$ 45 Million</p>
+                        <p>$ {{ video.budget }}</p>
                     </div>
+                    {% endif %}
+
+                    {% if video.box_office %}
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Box Office :</p>
                     </div>
                     <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
-                        <p>$ 104.9 Million</p>
+                        <p>$ {{ video.box_office }}</p>
                     </div>
+                    {% endif %}
+
                 </div><!-- End: Heading Row -->
             </div>
             <div class="col-xl-12">
                 <h1>Related</h1>
                 <div class="row">
-                    <!-- Start: Video Card -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="video-detail.html">
-                            <div class="card video-card">
-                                <div class="card-img"><img src="assets/img/movies/Training_Day_Poster.jpeg"></div>
-                                <div class="card-img-overlay" title="&quot;Training Day&quot;">
-                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
-                                </div>
-                                <div class="card-body video-card-body">
-                                    <div class="row d-flex">
-                                        <div class="col-sm-12">
-                                            <!-- Start: Card Title -->
-                                            <p class="text-truncate video-card-title">Training Day Training Day</p><!-- End: Card Title -->
+                        {% if video_recs %}
+                            {% for video in video_recs %}
+                            <!-- Start: Video Card -->
+<!--                            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 portfolio-item"><a class="" href="{% url 'streaming:video_detail_type' video_type=video.type video_id=video.id %}">-->
+<!--                                    <div class="card home-card">-->
+<!--                                        <div class="card-img"><img src="{{ video.thumbnail_url }}"></div>-->
+<!--                                        <div class="card-img-overlay">-->
+<!--                                            <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary home-card-top-badge">HD</span></h6>-->
+<!--                                        </div>-->
+<!--                                        <div class="card-body home-card-body">-->
+<!--                                            <div class="row d-flex">-->
+<!--                                                <div class="col-sm-12">-->
+<!--                                                    &lt;!&ndash; Start: Card Title &ndash;&gt;-->
+<!--                                                    <p class="home-card-title">{{ video.title }}</p>&lt;!&ndash; End: Card Title &ndash;&gt;-->
+<!--                                                </div>-->
+<!--                                                <div class="col-8 col-sm-9">-->
+<!--                                                    <p class="home-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">-->
+<!--                                                            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>-->
+<!--                                                        </svg>&nbsp; 87m</p>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end home-card-bottom-badge">Movie</span></div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a></div>-->
+                                <!-- End: Video Card -->
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="{% url 'streaming:video_detail_type' video_type=video.type video_id=video.id %}">
+                                <div class="card video-card">
+                                    <div class="card-img"><img src="{{ video.thumbnail_url }}" /></div>
+                                    <div class="card-img-overlay" title="&quot;{{ video.title }}&quot;">
+                                        <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">{{ video.quality }}</span></h6>
+                                    </div>
+                                    <div class="card-body video-card-body">
+                                        <div class="row d-flex">
+                                            <div class="col-sm-12">
+                                                <p class="text-truncate video-card-title">{{ video.title }}</p>
+                                            </div>
+                                            <div class="col-8 col-sm-9">
+                                                <p class="video-card-p">2023  <svg class="bi bi-dot" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+                                                    </svg>  87m</p>
+                                            </div>
+                                            <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">{{ video.type }}</span></div>
                                         </div>
-                                        <div class="col-8 col-sm-9">
-                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
-                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                </svg>&nbsp; 87m</p>
-                                        </div>
-                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
                                     </div>
                                 </div>
-                            </div>
-                        </a></div><!-- End: Video Card -->
-                    <!-- Start: Video Card -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="video-detail.html">
-                            <div class="card video-card">
-                                <div class="card-img"><img src="assets/img/movies/Training_Day_Poster.jpeg"></div>
-                                <div class="card-img-overlay" title="&quot;Training Day&quot;">
-                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
-                                </div>
-                                <div class="card-body video-card-body">
-                                    <div class="row d-flex">
-                                        <div class="col-sm-12">
-                                            <!-- Start: Card Title -->
-                                            <p class="text-truncate video-card-title">Training Day Training Day</p><!-- End: Card Title -->
-                                        </div>
-                                        <div class="col-8 col-sm-9">
-                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
-                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                </svg>&nbsp; 87m</p>
-                                        </div>
-                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></div><!-- End: Video Card -->
-                    <!-- Start: Video Card -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="video-detail.html">
-                            <div class="card video-card">
-                                <div class="card-img"><img src="assets/img/movies/Training_Day_Poster.jpeg"></div>
-                                <div class="card-img-overlay" title="&quot;Training Day&quot;">
-                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
-                                </div>
-                                <div class="card-body video-card-body">
-                                    <div class="row d-flex">
-                                        <div class="col-sm-12">
-                                            <!-- Start: Card Title -->
-                                            <p class="text-truncate video-card-title">Training Day Training Day</p><!-- End: Card Title -->
-                                        </div>
-                                        <div class="col-8 col-sm-9">
-                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
-                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                </svg>&nbsp; 87m</p>
-                                        </div>
-                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></div><!-- End: Video Card -->
-                    <!-- Start: Video Card -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="video-detail.html">
-                            <div class="card video-card">
-                                <div class="card-img"><img src="assets/img/movies/Training_Day_Poster.jpeg"></div>
-                                <div class="card-img-overlay" title="&quot;Training Day&quot;">
-                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
-                                </div>
-                                <div class="card-body video-card-body">
-                                    <div class="row d-flex">
-                                        <div class="col-sm-12">
-                                            <!-- Start: Card Title -->
-                                            <p class="text-truncate video-card-title">Training Day Training Day</p><!-- End: Card Title -->
-                                        </div>
-                                        <div class="col-8 col-sm-9">
-                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
-                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                </svg>&nbsp; 87m</p>
-                                        </div>
-                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></div><!-- End: Video Card -->
-                    <!-- Start: Video Card -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="video-detail.html">
-                            <div class="card video-card">
-                                <div class="card-img"><img src="assets/img/movies/Training_Day_Poster.jpeg"></div>
-                                <div class="card-img-overlay" title="&quot;Training Day&quot;">
-                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
-                                </div>
-                                <div class="card-body video-card-body">
-                                    <div class="row d-flex">
-                                        <div class="col-sm-12">
-                                            <!-- Start: Card Title -->
-                                            <p class="text-truncate video-card-title">Training Day Training Day</p><!-- End: Card Title -->
-                                        </div>
-                                        <div class="col-8 col-sm-9">
-                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
-                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                </svg>&nbsp; 87m</p>
-                                        </div>
-                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></div><!-- End: Video Card -->
-                    <!-- Start: Video Card -->
-                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="video-detail.html">
-                            <div class="card video-card">
-                                <div class="card-img"><img src="assets/img/movies/Training_Day_Poster.jpeg"></div>
-                                <div class="card-img-overlay" title="&quot;Training Day&quot;">
-                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
-                                </div>
-                                <div class="card-body video-card-body">
-                                    <div class="row d-flex">
-                                        <div class="col-sm-12">
-                                            <!-- Start: Card Title -->
-                                            <p class="text-truncate video-card-title">Training Day Training Day</p><!-- End: Card Title -->
-                                        </div>
-                                        <div class="col-8 col-sm-9">
-                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
-                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                </svg>&nbsp; 87m</p>
-                                        </div>
-                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a></div><!-- End: Video Card -->
+                            </a></div>
+                            {% endfor %}
+                        {% else %}
+                            <h1>Sorry, unable to fetch the movies list..</h1>
+                        {% endif %}
                 </div>
             </div>
         </div>
@@ -311,9 +252,10 @@
         </ul>
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/agency.js"></script>
-    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
-</body>
+<!--    <script src="assets/js/agency.js"></script>-->
+<!--    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>-->
+<!--    <script src="assets/js/Simple-Slider.js"></script>-->
+{% endblock %}
 
-</html>
+{% block footer %}
+{% endblock %}

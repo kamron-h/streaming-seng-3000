@@ -1,57 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Stream</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<title>CRUD</title>
+{% endblock %}
+
+{% block style %}
+
+{% block content %}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>~~ CRUD OPERATIONS ~~</h1>
+            <h1>~~ C.R.U.D. OPERATIONS ~~</h1>
         </div>
     </div>
 </div>
-{% block content %}
-
 <!-- SECTION FOR VIDEOS -->
 
 <h3 style="color: #00363a">Videos</h3>
 
 <!-- Create (POST) Form for Videos -->
-<h5>Create New Video</h5>
-<form method="post" action="/api/videos/" enctype="multipart/form-data">
+<h5>Add a New Movie</h5>
+<form method="post" action="/api/movies/" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ video_form.as_p }}
-    <button type="submit">Create Video</button>
+    {{ movie_form.as_p }}
+    <button type="submit">Add Movie</button>
 </form>
 
 <!-- Update (PUT) Form for Videos -->
 <h5>Update Existing Video</h5>
-<form method="post" action="/api/videos/{{ video_id }}/" enctype="multipart/form-data">
+<form method="post" action="/api/movies/{{ movie_id }}/" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="hidden" name="_method" value="PUT">
-    Video ID: <input type="text" name="video_id" value="{{ video_id }}">
-    {{ video_form.as_p }}
-    <button type="submit">Update Video</button>
+    Movie ID: <input type="text" name="movie_id" value="{{ movie_id }}">
+    {{ movie_form.as_p }}
+    <button type="submit">Update Movie</button>
 </form>
 
 <!-- Delete (DELETE) Buttons for Videos -->
-<h5>Delete Video</h5>
-{% for video in videos %}
-    <form method="post" action="/api/videos/{{ video.id }}/">
+<h5>Delete Movie</h5>
+{% for movie in movies %}
+    <form method="post" action="/api/movies/{{ movie.id }}/">
         {% csrf_token %}
         <input type="hidden" name="_method" value="DELETE">
-        <button type="submit">Delete Video {{ video.id }}</button>
+        <button type="submit">Delete Video {{ movie.id }}</button>
     </form>
 {% endfor %}
 
 <!-- List (GET) of all Videos -->
 <h5>List of All Videos</h5>
 <ul>
-{% for video in videos %}
-    <li>Title : {{ video }} <br><span style="color: grey"> Actors : </span>
-{% for actor in video.actors.all %}
+{% for movie in movies %}
+    <li>Title : {{ movie }} <br><span style="color: grey"> Actors : </span>
+{% for actor in movie.actors.all %}
     <span style="color: lightgray">{{ actor.name }},</span>
 {% endfor %}
 </li>
@@ -95,11 +97,8 @@
 <h5>List of All Actors</h5>
 <ul>
 {% for actor in actors %}
-    <li>{{ actor }}</li>
+    <li>{{ actor.name }}</li>
 {% endfor %}
 </ul>
 
 {% endblock %}
-
-</body>
-</html>
