@@ -77,6 +77,7 @@ a {
 .home-card-bottom-badge {
   font-size: xx-small !important;
   background-color: rgba(0,0,0,0.25) !important;
+  padding-left: 4px !important;
 }
 
 .home-paginator {
@@ -94,7 +95,9 @@ a {
   color: black;
 }
 
+/*TODO: FIX BORDER-COLOR || BORDER-RADIUS*/
 .nav-tabs .nav-link.home-tab:hover {
   color: #ed0000;
+  border-color: transparent !important;
+  border-radius: 21px !important;
 }
-

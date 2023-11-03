@@ -1,0 +1,10 @@
+@media (min-width: 992px) {
+  #mainNav {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    /*transition: padding-top .3s,padding-bottom .3s;*/
+    border: none;
+    background-color: transparent;
+  }
+}
+

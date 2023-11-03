@@ -1,8 +1,11 @@
 {% extends 'streaming/base.html' %}
 {% load static %}
+
 {% block head %}
 <title>{{ video.title }}</title>
-<!--    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">-->
+
+<link rel="stylesheet" href="{% static 'assets/css/video-details.css' %}">
+<!--<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">-->
 <!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">-->
 <!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">-->
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
@@ -16,18 +19,22 @@
 <!--    <link rel="stylesheet" href="{% static 'assets/css/Simple-Slider.css' %}">-->
 <!--    <link rel="stylesheet" href="{% static 'assets/css/untitled-1.css' %}">-->
 <!--    <link rel="stylesheet" href="{% static 'assets/css/untitled.css' %}">-->
-    <link rel="stylesheet" href="{% static 'assets/css/video-details.css' %}">
+
 {% endblock %}
 
 {% block styles %}
+
+<style>
+</style>
+
 {% endblock %}
 
 {% block carousel %}
 {% endblock %}
 
 {% block content %}
-<div class="col" style="height: 55px;margin-top: 14px;margin-bottom: 14px;"></div>
-    <ol class="breadcrumb details-breadcrumb" style="padding-top: 20px;margin-left: 1em;">
+<br><br><br><br>
+    <ol class="breadcrumb details-breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'streaming:home' %}"><span class="breadcrumb-blk">Home</span></a></li>
         {% if video.type == 'Movie' %}
             <li class="breadcrumb-item"><a href="{% url 'streaming:movie_list' %}"><span class="breadcrumb-blk">Movies</span></a></li>
@@ -85,11 +92,11 @@
                 </a></div><!-- End: Episode -->
         </div>
     </div>
+<hr>
     <!-- TV Show Episode UI Elements ENDS Here -->
     {% endif %}
 
-    <hr>
-    <div class="container">
+    <div class="container" style="margin-top: 2em">
         <div class="row">
             <div class="col-3 col-xl-3 details-vid-cover"><img class="img-fluid rounded-2" src="{{ video.thumbnail_url }}"></div>
             <div class="col-12 col-lg-9 col-xl-9">
@@ -100,7 +107,7 @@
                     </div>
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-4 col-sm-8 col-lg-2 d-flex justify-content-center align-items-center justify-content-sm-end justify-content-lg-center justify-content-xl-end justify-content-xxl-end"><span class="badge bg-primary" style="color: #000000;">HD</span></div>
+                            <div class="col-4 col-sm-8 col-lg-2 d-flex justify-content-center align-items-center justify-content-sm-end justify-content-lg-center justify-content-xl-end justify-content-xxl-end"><span class="badge" style="color: #000000;">HD</span></div>
                             <div class="col-3 col-sm-2 col-lg-2 d-flex justify-content-center align-items-center">
                                 <p class="d-flex justify-content-center align-items-center" style="margin: 0;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-star">
                                         <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"></path>
@@ -113,22 +120,25 @@
                             </div>
                         </div>
                     </div><!-- Start: Heading Row -->
-                    <div class="col-12 col-xl-12">
-                        <p style="padding-top: 6px;">
+                    <div class="col-12 col-xl-12" style="padding-bottom: 2em;">
+                        <p style="padding-top: 2em;">
 <!--                            <strong><em><span style="color: rgb(32, 33, 34);">{{ movie.title }}</span></em></strong><span style="color: rgb(32, 33, 34);">&nbsp;is a 2001 American&nbsp;</span>-->
-                            <strong><em><span style="color: rgb(32, 33, 34);">{{ video.title }}</span></em></strong>
+<!--                            <strong><em><span style="color: rgb(32, 33, 34);">{{ video.title }}</span></em></strong>-->
                             <span style="color: rgb(32, 33, 34);">{{ video.description }}</span>
                     </div><!-- End: Heading Row -->
-                    <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
-                        <p>Lead Actors&nbsp;:</p>
-                    </div>
-                    <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
-                        <p>{% for actor in video.cast.all %}
-                                {% if forloop.last %}<span title="{{ actor.bio }}"> {{ actor }}.</span>
-                                {% else %}<span title="{{ actor.bio }}"> {{ actor }}, </span>
-                                {% endif %}
-                            {% endfor %}</p>
-                    </div>
+                    {% if video.cast.all %}
+                        <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
+                            <p>Lead Actors&nbsp;:</p>
+                        </div>
+                        <div class="col-7 col-sm-8 col-xl-8 col-xxl-9">
+                            <p>{% for actor in video.cast.all %}
+                                    {% if forloop.last %}<span title="{{ actor.bio }}"> {{ actor }}.</span>
+                                    {% else %}<span title="{{ actor.bio }}"> {{ actor }}, </span>
+                                    {% endif %}
+                                {% endfor %}</p>
+                        </div>
+                    {% endif %}
+                    {% if video.genres.all %}
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Genre&nbsp;:</p>
                     </div>
@@ -139,6 +149,7 @@
                                 {% endif %}
                             {% endfor %}</p>
                     </div>
+                    {% endif %}
 
                     {% if video.premier_date %}
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
@@ -149,7 +160,7 @@
                     </div>
                     {% endif %}
 
-                    {% if video.country %}
+                    {% if video.country.all %}
                     <div class="col-5 col-sm-4 col-md-3 col-xl-4 col-xxl-3 d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center">
                         <p>Country&nbsp;:</p>
                     </div>
@@ -182,8 +193,8 @@
 
                 </div><!-- End: Heading Row -->
             </div>
-            <div class="col-xl-12">
-                <h1>Related</h1>
+            <div class="col-xl-12" style="margin-top: 2em">
+                <h1 class="related-vids">Related</h1>
                 <div class="row">
                         {% if video_recs %}
                             {% for video in video_recs %}
@@ -215,7 +226,7 @@
                                 <div class="card video-card">
                                     <div class="card-img"><img src="{{ video.thumbnail_url }}" /></div>
                                     <div class="card-img-overlay" title="&quot;{{ video.title }}&quot;">
-                                        <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">{{ video.quality }}</span></h6>
+                                        <h6 class="text-start" style="text-align: left;"><span class="badge video-card-top-badge">{{ video.quality }}</span></h6>
                                     </div>
                                     <div class="card-body video-card-body">
                                         <div class="row d-flex">
@@ -227,7 +238,7 @@
                                                         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
                                                     </svg>  87m</p>
                                             </div>
-                                            <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">{{ video.type }}</span></div>
+                                            <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center lower-badge-col"><span class="badge d-flex justify-content-center align-items-end video-card-bottom-badge">{{ video.type }}</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -240,17 +251,6 @@
             </div>
         </div>
     </div>
-    <nav class="d-flex justify-content-center align-items-center home-paginator">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-        </ul>
-    </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!--    <script src="assets/js/agency.js"></script>-->
 <!--    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>-->

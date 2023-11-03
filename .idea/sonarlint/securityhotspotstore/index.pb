@@ -60,3 +60,13 @@ _
 /streaming/templates/streaming/video_detail.html,c/f/cf6e050fc26a541cefedc8c71363f2da3271faab
 [
 +streaming/templates/streaming/api_crud.html,b/2/b24eb3899286a688fe2c0d945ec94cf14cf57890
+Z
+*public/static/assets/css/video-details.css,c/b/cb038bc7e56cc293a746d963cf67a1d388893b9c
+U
+%public/static/assets/css/untitled.css,5/7/57a468d74b4bd7c74a0610aebf113772d58d69bf
+W
+'public/static/assets/css/video-list.css,1/8/1881bcda19c674a8c4cc97afc9b1de2a0d631649
+d
+4public/static/assets/bootstrap/css/bootstrap.min.css,f/0/f0284372988630fe1babea8d4ccfc48547855032
+S
+#public/static/assets/css/navbar.css,f/2/f27a0c2dd0607026157acb4f14218464436a3e64

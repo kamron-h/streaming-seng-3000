@@ -1,10 +1,11 @@
 .details-breadcrumb {
   margin-top: 36px;
   padding-left: 7px;
+  background-color: purple !important;
 }
 
-.details-video {
-}
+/*.details-video {*/
+/*}*/
 
 .details-season-btn {
   margin-top: 14px;

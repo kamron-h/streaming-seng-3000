@@ -12,6 +12,10 @@
   text-decoration: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .movie-card {
   border-radius: 6px;
 }
@@ -75,9 +79,6 @@
   object-fit: cover;
 }
 
-div {
-}
-
 /* 1:1 Card Image */
 
 .card-img.square {
@@ -127,7 +128,7 @@ div {
 
 .video-card-title {
   font-size: 11px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   font-weight: bold;
 }
 
@@ -156,8 +157,9 @@ div {
 }
 
 .video-card-bottom-badge {
-  font-size: xx-small;
+  font-size: xx-small !important;
   background-color: rgba(0,0,0,0.25) !important;
+  padding-left: 4px !important;
 }
 
 .video-card-id {

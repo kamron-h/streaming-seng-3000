@@ -24,7 +24,7 @@ REGION_CHOICES = (
 
 # Create your models here.
 class Movie(models.Model):
-    title = models.CharField(max_length=30, unique=True)
+    title = models.CharField(max_length=40, unique=True)
     premiere_date = models.DateField(null=True, blank=True)  # The date when the show first aired
     description = models.TextField(null=True, blank=True)
     length = models.CharField(max_length=30, null=True, blank=True)

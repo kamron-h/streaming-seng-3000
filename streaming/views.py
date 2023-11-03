@@ -67,15 +67,22 @@ def api_index(request):
 
 
 def home(request):
-    movies = Movie.objects.all()[:20]
-    shows = Show.objects.all()[:20]
-    mov_paginate = Paginator(movies, 6)
-    show_paginate = Paginator(movies, 6)
+    movies = Movie.objects.all()[:12]  # [:20] Used to limit
+    shows = Show.objects.all()[:12]  # [:20] Used to limit
+    cover_movs = movies[:5]  # Movies used in the carousel
+    latest_shows = shows[:6]
+    latest_movs = movies[:6]
+    # Sort latest_movies in ascending
+    # mov_paginate = Paginator(movies, 6)
+    # show_paginate = Paginator(movies, 6)
     context = {
         'movies': movies,
         'shows': shows,
-        'mov_paginate': mov_paginate,
-        'show_paginate': show_paginate,
+        'cover_movs': cover_movs,
+        'latest_shows': latest_shows,
+        'latest_movs': latest_movs,
+        # 'mov_paginate': mov_paginate,
+        # 'show_paginate': show_paginate,
     }
     return render(request, 'streaming/home.html', context)
 
@@ -111,7 +118,7 @@ def tv_list(request):
 def video_detail(request, video_id=None):
     video = get_object_or_404(Movie, pk=video_id)
     # Sort latest_movies in ascending order based on premiere_date
-    latest_shows = Show.objects.all().order_by('premiere_date')[:6]
+    latest_shows = Show.objects.all().order_by('premiere_date')  # [:6] Used to limit
     return render(request, 'streaming/video_detail.html',
                   {'video': video, 'latest_movies': latest_shows})
 
@@ -121,12 +128,10 @@ def video_detail_type(request, video_type=None, video_id=None):
         video = (get_object_or_404(Movie, pk=video_id))
         # Sort latest_movies in ascending order based on premiere_date
         video_recs = Movie.objects.all().order_by('premiere_date')[:6]
-    #     List another word for recommendation
-
     else:
         video = (get_object_or_404(Show, pk=video_id))
         # Sort latest_movies in ascending order based on premiere_date
-        video_recs = Show.objects.all().order_by('premiere_date')[:6]
+        video_recs = Show.objects.all().order_by('premiere_date')[:6]  # [:6] Used to limit
     return render(request, 'streaming/video_detail.html',
                   {'video': video, 'video_recs': video_recs})
 

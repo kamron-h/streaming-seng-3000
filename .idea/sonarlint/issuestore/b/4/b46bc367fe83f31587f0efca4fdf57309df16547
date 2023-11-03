@@ -1,14 +1,26 @@
 
-Apython:S6553"Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8½ûšñ³1
-Bpython:S125"Remove this commented out code.(¼Ì•äøÿÿÿÿ8ú‡åö³1
-Spython:S1135"4Complete the task associated to this "TODO" comment.(Ä±µç8¼±áö³1
-Spython:S1135"4Complete the task associated to this "TODO" comment.(¾éíÐ8’Í€÷³1
-Apython:S6553&"Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8½ûšñ³1
-Spython:S1135?"4Complete the task associated to this "TODO" comment.(çÕþ¯8ÅËÿ÷³1
-Spython:S1135B"4Complete the task associated to this "TODO" comment.(Ž“æ™8Õãó†´1
-Apython:S6553J"Remove this "null=True" flag.(À»¡Ðÿÿÿÿÿ8¾ûšñ³1
-Apython:S6553K"Remove this "null=True" flag.(ÞçÝ®úÿÿÿÿ8›ßÐø³1
-<python:S6553O"Remove this "null=True" flag.(ùêœñ8ü™Ôø³1
-<python:S6553P"Remove this "null=True" flag.(»Ù·¯8úÕø³1
-=python:S125_"Remove this commented out code.(Ê‰£8Âûšñ³1
-Cpython:S125 "Remove this commented out code.(ˆ“ñ€ÿÿÿÿÿ8Ìûšñ³1
+ppython:S1192+"LDefine a constant instead of duplicating this literal 'thumbnails/' 4 times.(²•¾¤ÿÿÿÿÿ8ûÍÃÇµ1
+mpython:S1192"NDefine a constant instead of duplicating this literal 'North America' 4 times.( «À8½ÖƒÄµ1
+Bpython:S125"Remove this commented out code.(¼Ì•äøÿÿÿÿ8½ÖƒÄµ1
+<python:S6553"Remove this "null=True" flag.(«µ§Þ8½ÖƒÄµ1
+<python:S6553"Remove this "null=True" flag.(ÖÄ²8½ÖƒÄµ1
+Apython:S6553'"Remove this "null=True" flag.(È±¾£ÿÿÿÿÿ8ëù³Çµ1
+<python:S6553("Remove this "null=True" flag.(Åýßò8üÍÃÇµ1
+Apython:S6553."Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8«å°Òµ1
+Apython:S6553:"Remove this "null=True" flag.(Æî ûÿÿÿÿ8¬å°Òµ1
+<python:S6553;"Remove this "null=True" flag.(ÖÄ²8­å°Òµ1
+Apython:S6553I"Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8­å°Òµ1
+<python:S6553`"Remove this "null=True" flag.(«µ§Þ8­å°Òµ1
+<python:S6553g"Remove this "null=True" flag.( £ì8­å°Òµ1
+=python:S6553‡"Remove this "null=True" flag.(Þü¨÷8­å°Òµ1
+Bpython:S6553ˆ"Remove this "null=True" flag.(àØãûÿÿÿÿ8­å°Òµ1
+=python:S6553"Remove this "null=True" flag.(ùêœñ8­å°Òµ1
+Bpython:S6553Ž"Remove this "null=True" flag.(Ò„É…øÿÿÿÿ8®å°Òµ1
+Ypython:S1135‰"4Complete the task associated to this "TODO" comment.(˜ëƒÐûÿÿÿÿ8­å°Òµ1
+Cpython:S125Ÿ"Remove this commented out code.(µÓçäÿÿÿÿÿ8­å°Òµ1
+=python:S6553¼"Remove this "null=True" flag.(ä¬æ×8®å°Òµ1
+=python:S6553¾"Remove this "null=True" flag.(«µ§Þ8•ÞÜÔµ1
+Bpython:S6553Æ"Remove this "null=True" flag.(¸Ùòøÿÿÿÿ8ŽùÞÔµ1
+=python:S6553Î"Remove this "null=True" flag.(ä¬æ×8Õá€îµ1
+=python:S6553Ð"Remove this "null=True" flag.(«µ§Þ8­Íîµ1
+Cpython:S125Ö"Remove this commented out code.(ˆ“ñ€ÿÿÿÿÿ8®å°Òµ1
