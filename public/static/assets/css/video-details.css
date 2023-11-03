@@ -1,20 +1,7 @@
-
-.bread-container {
-  /*padding-top: 50px;*/
-  /*background-color: #0dcaf0 !important;*/
-  height: 55px !important;
-  /*margin-top: 14px !important;*/
-}
-
-.details-breadcrumb {
-  padding-top: 1em;
-  margin-left: 1em !important;
-}
-
 .breadcrumb-blk {
   color: #000000 !important;
-  font-size: medium !important;
-  margin-top: 6em !important;
+  font-size: medium;
+  padding-top: 60px !important;
   margin-left: 1em !important;
 }
 
@@ -35,14 +22,14 @@
 /* Episode Button Links */
 
 .ep-btn-row {
-  max-height: 160px !important;
-  /*height: 100px !important;*/
-  overflow-y: auto !important;
+  max-height: 160px;
+  /*height: 100px;*/
+  overflow-y: auto;
 }
 
 @media (min-width: 992px) {
   .ep-btn-row {
-    max-height: 168px !important;
+    max-height: 168px;
   }
 }
 
@@ -60,19 +47,19 @@
 
 @media (min-width: 992px) {
   .ep-btn {
-    font-size: large !important;
+    font-size: large;
   }
 }
+
 
 /*@media (min-width: 992px) {*/
 /*  .related {*/
 /*    margin-top: 20px;*/
 /*  }*/
 /*}*/
-
-.related-vids {
-    margin-top: 20px !important;
-  }
+/*.related-vids {*/
+/*    margin-top: 20px !important;*/
+/*  }*/
 
 .details-season-btn {
   margin-top: 14px;
@@ -81,7 +68,6 @@
   border-radius: 10px;
   color: #000000;
 }
-
 .details-group-btn {
   /*margin-left: 31px;*/
   /*margin-bottom: 8px;*/
@@ -89,25 +75,20 @@
   border-radius: 14px !important;
   color: #000000;
 }
-
 .details-vid-cover {
   display: none;
 }
-
 @media (min-width: 992px) {
   .details-vid-cover {
     display: initial;
   }
 }
-
 .badge {
         font-size: xx-small !important;
     }
-
 .a {
   text-decoration: none!important;
 }
-
 .lower-badge-col {
   padding-left: 4px !important;
 }
