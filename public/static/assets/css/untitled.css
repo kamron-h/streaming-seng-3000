@@ -10,6 +10,8 @@
 #portfolio .portfolio-item .portfolio-link {
   color: var(--bs-emphasis-color);
   text-decoration: none;
+  margin-top: 7px  !important;
+  padding-bottom: 7px !important;
 }
 
 a {
@@ -112,6 +114,10 @@ a {
 }
 
 /* Video Card Widgets */
+.video-card {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
 
 .video-view-more {
   padding: 0 6px;
@@ -159,7 +165,6 @@ a {
 .video-card-bottom-badge {
   font-size: xx-small !important;
   background-color: rgba(0,0,0,0.25) !important;
-  padding-left: 4px !important;
 }
 
 .video-card-id {
