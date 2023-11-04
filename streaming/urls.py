@@ -35,6 +35,6 @@ urlpatterns = [
     path('shows/', views.tv_list, name='tv_list'),
     # path('video/', views.video_detail, name='video_detail'),
     path('video/<int:video_id>/', views.video_detail, name='video_detail'),
-    path('video/<str:video_type>/<int:video_id>/', views.video_detail_type, name='video_detail_type'),
+    path('video/<str:video_type>/<int:video_pk>/', views.video_detail_type, name='video_detail_type'),
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
 ]
