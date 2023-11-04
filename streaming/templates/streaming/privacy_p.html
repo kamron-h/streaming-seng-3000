@@ -1,308 +1,135 @@
-<!DOCTYPE html>
-<html data-bs-theme="light" lang="en">
+{% extends 'streaming/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/crud.css">
-    <link rel="stylesheet" href="assets/css/Hero-Carousel-images.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/media-details.css">
-    <link rel="stylesheet" href="assets/css/privacy-p.css">
-    <link rel="stylesheet" href="assets/css/simple-footer.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider-swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
-    <link rel="stylesheet" href="assets/css/untitled-1.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
-    <link rel="stylesheet" href="assets/css/video-details.css">
-    <link rel="stylesheet" href="assets/css/video-list.css">
-</head>
+{% block head %}
+<title>Privacy Policy</title>
+<link rel="stylesheet" href="{% static 'assets/css/privacy-p.css' %}">
+{% endblock %}
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background-color: #f4f2f2;">
-    <nav class="navbar navbar-expand-lg fixed-top bg-black navbar-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#">DjangoStream</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="movie-list.html">Movies</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tv-list.html">TV Shows</a></li>
-                    <li class="nav-item"><a class="nav-link" href="genres.html">genres</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="api-main.html">API</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav><!-- Start: Hero Carousel -->
-    <div class="carousel slide" data-bs-ride="carousel" id="carousel-1" style="height: 600px;">
-        <div class="carousel-inner h-100 home-cover">
-            <div class="carousel-item active h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/training_day_coverdark.webp" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold">Training day</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p>Duration: 2hrs 2min</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Genre: Action, Thriller, Crime</p>
-                                        </div>
-                                        <div class="col">
-                                            <p>A rookie cop spends his first day as a Los Angeles narcotics officer with a rogue detective who isn't what he appears to be. As the day progresses, he realizes the harrowing depths of corruption and moral ambiguity that come with the badge.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/roadwarrior_dark.png" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold video-list-cover-title">Mad max</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p class="video-list-cover-p">Duration: 1h 28m</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p class="video-list-cover-p">Genre: Action, Adventure, Sci-Fi</p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="video-list-cover-descrip">In a post-apocalyptic world on the brink of chaos, a vengeful Australian policeman named Max sets out on a mission to stop a violent motorcycle gang. As law and order crumble, Max's pursuit becomes a high-octane battle for survival on the desolate roads.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/alien_cover_0dark.webp" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold">Alien (1979)</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p>Duration: 1h 57m</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Genre: Horror, Sci-Fi</p>
-                                        </div>
-                                        <div class="col">
-                                            <p>The crew of a commercial spacecraft encounters a deadly life-form after investigating an unknown transmission. As they navigate the confines of their ship, they quickly realize that they are not alone, and the alien being aboard is a perfect predator, unclouded by conscience, remorse, or any form of morality.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/colors_0dark.jpeg" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold">Fast Color</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p>Duration: 1h 40min</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Genre: Drama, Sci-Fi, Thriller</p>
-                                        </div>
-                                        <div class="col">
-                                            <p>After years in hiding due to her superhuman abilities, a woman is forced to go on the run. Her past catches up with her, and the only refuge she has left is her family home. As she confronts her powers and her past, she must decide whether to keep running or face the consequences.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/partisan_1dark.jpeg" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold">Partisan</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p>Duration: 1h 34m</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Genre: Drama</p>
-                                        </div>
-                                        <div class="col">
-                                            <p>Alexander, a boy raised in a secluded commune, finds himself at odds with Gregori, the society's charismatic leader. As he begins to question the community's ways, his increasing unwillingness to conform puts him on a collision course with Gregori, leading to a tense and dramatic confrontation.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="assets/img/mov_cover/black-monday-2dark.jpeg" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold">Black Monday</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-10">
-                                            <p>Duration: 30m per episode</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Genre: Comedy</p>
-                                        </div>
-                                        <div class="col">
-                                            <p>Dive into the world of Wall Street in the 1980s, where a group of outsiders challenges the old-boys club. As they navigate the highs and lows of the financial world, they uncover secrets, scandals, and the dark side of ambition.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-        </div>
-        <div>
-            <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><!-- End: Previous -->
-            <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a><!-- End: Next -->
-        </div>
-        <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="3"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="4"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="5"></button></div>
-    </div><!-- End: Hero Carousel -->
+{% block style %}{% endblock %}
+{% block carousel %}{% endblock %}
+
+{% block content %}
+<br><br><br><br><br>
     <div class="container">
         <div class="col">
             <div class="row">
                 <div class="col-12">
                     <h1 class="policy-heading">Privacy Policy</h1>
                 </div>
+                <br>
                 <div class="col-sm-12 policy-content-date">
                     <h6>Last Updated 12/12/12</h6>
+
                 </div>
                 <div class="col policy-content-col">
                     <p>Welcome to&nbsp;<span class="sub-title-span">DjangoStream</span>. We value your trust and are committed to protecting your privacy. This Privacy Policy outlines the types of information we collect, how we use it, and the measures we take to safeguard your data.</p>
-                </div><!-- Start: Policy Title -->
-                <div class="col-sm-12">
-                    <h4>1. Information Collected</h4>
-                </div><!-- End: Policy Title -->
-                <!-- Start: Policy Content -->
-                <div class="col policy-content-col">
-                    <p><span class="sub-title-span">Account Information:&nbsp;</span>&nbsp;When you create an account with us, we collect your name, email address, and password.</p>
-                    <p><span class="sub-title-span">Payment Information:</span>&nbsp;To process transactions, we may collect payment details, but we do not store full credit card numbers or security codes.</p>
-                    <p><span class="sub-title-span">Usage Data:</span>&nbsp;We gather data on how you interact with our platform, such as watch history, search queries, and preferences.</p>
-                </div><!-- End: Policy Content -->
+                </div>
+
+
                 <!-- Start: Policy Title -->
                 <div class="col-sm-12">
-                    <h4>2. How We Use Your Information</h4>
+                    <h5>1. Information Collected</h5>
                 </div><!-- End: Policy Title -->
-                <!-- Start: Policy Content -->
-                <div class="col policy-content-col">
-                    <p><span class="sub-title-span">Service Provision:&nbsp;</span>To provide, maintain, and improve our services.</p>
-                    <p><span class="sub-title-span">Communication:&nbsp;</span>To communicate with you about updates, promotions, and customer service inquiries.</p>
-                    <p><span class="sub-title-span">Security: </span>To detect fraud, protect against malicious activity, and ensure the integrity of our services.</p>
-                </div><!-- End: Policy Content -->
+                <div class="container">
+                    <!-- Start: Policy Content -->
+                    <div class="col policy-content-col">
+                        <p><span class="sub-title-span">Account Information:&nbsp;</span>&nbsp;When you create an account with us, we collect your name, email address, and password.</p>
+                        <p><span class="sub-title-span">Payment Information:</span>&nbsp;To process transactions, we may collect payment details, but we do not store full credit card numbers or security codes.</p>
+                        <p><span class="sub-title-span">Usage Data:</span>&nbsp;We gather data on how you interact with our platform, such as watch history, search queries, and preferences.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
+
+
                 <!-- Start: Policy Title -->
                 <div class="col-sm-12">
-                    <h4>3. Protection of Your Data</h4>
+                    <h5>2. How We Use Your Information</h5>
                 </div><!-- End: Policy Title -->
-                <!-- Start: Policy Content -->
-                <div class="col policy-content-col">
-                    <p>We implement robust security measures to protect your data from unauthorized access, alteration, or deletion.</p>
-                    <p>We use encryption technologies to ensure the confidentiality of your information.</p>
-                </div><!-- End: Policy Content -->
+                <div class="container">
+                    <!-- Start: Policy Content -->
+                    <div class="col policy-content-col">
+                        <p><span class="sub-title-span">Service Provision:&nbsp;</span>To provide, maintain, and improve our services.</p>
+                        <p><span class="sub-title-span">Communication:&nbsp;</span>To communicate with you about updates, promotions, and customer service inquiries.</p>
+                        <p><span class="sub-title-span">Security: </span>To detect fraud, protect against malicious activity, and ensure the integrity of our services.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
+
+
+
                 <!-- Start: Policy Title -->
                 <div class="col-sm-12">
-                    <h4>4.&nbsp;Sharing of Information</h4>
+                    <h5>3. Protection of Your Data</h5>
                 </div><!-- End: Policy Title -->
-                <!-- Start: Policy Content -->
-                <div class="col policy-content-col">
-                    <p><span class="sub-title-span">No Sale of Data:&nbsp;</span>&nbsp;We firmly commit that we will not sell your personal information to any third party.</p>
-                    <p><span class="sub-title-span">Service Providers:&nbsp;</span>&nbsp;We may share your data with third-party vendors who provide services on our behalf, such as payment processing. These vendors are contractually bound to protect your information.</p>
-                    <p><span class="sub-title-span">Legal Obligations:&nbsp;</span>&nbsp;We may disclose your information if required by law or in response to legal processes.</p>
-                </div><!-- End: Policy Content -->
+                <div class="container">
+                    <!-- Start: Policy Content -->
+                    <div class="col policy-content-col">
+                        <p>We implement robust security measures to protect your data from unauthorized access, alteration, or deletion.</p>
+                        <p>We use encryption technologies to ensure the confidentiality of your information.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
+
+
+
+
+
+
                 <!-- Start: Policy Title -->
                 <div class="col-sm-12">
-                    <h4>5. Your Rights</h4>
+                    <h5>4.&nbsp;Sharing of Information</h5>
                 </div><!-- End: Policy Title -->
-                <!-- Start: Policy Content -->
-                <div class="col policy-content-col">
-                    <p>You have the right to access, modify, or delete your personal information at any time.</p>
-                    <p>You can opt-out of promotional communications by following the unsubscribe link in our emails.</p>
-                </div><!-- End: Policy Content -->
+                <div class="container">
+                    <!-- Start: Policy Content -->
+                    <div class="col policy-content-col">
+                        <p><span class="sub-title-span">No Sale of Data:&nbsp;</span>&nbsp;We firmly commit that we will not sell your personal information to any third party.</p>
+                        <p><span class="sub-title-span">Service Providers:&nbsp;</span>&nbsp;We may share your data with third-party vendors who provide services on our behalf, such as payment processing. These vendors are contractually bound to protect your information.</p>
+                        <p><span class="sub-title-span">Legal Obligations:&nbsp;</span>&nbsp;We may disclose your information if required by law or in response to legal processes.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
                 <!-- Start: Policy Title -->
                 <div class="col-sm-12">
-                    <h4>6. Cookies</h4>
+                    <h5>5. Your Rights</h5>
                 </div><!-- End: Policy Title -->
-                <!-- Start: Policy Content -->
-                <div class="col policy-content-col">
-                    <p>We use cookies to enhance your user experience, remember your preferences, and provide relevant advertising. You can manage or disable cookies in your browser settings.</p>
-                </div><!-- End: Policy Content -->
+                <div class="container">
+                    <!-- Start: Policy Content -->
+                    <div class="col policy-content-col">
+                        <p>You have the right to access, modify, or delete your personal information at any time.</p>
+                        <p>You can opt-out of promotional communications by following the unsubscribe link in our emails.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
                 <!-- Start: Policy Title -->
                 <div class="col-sm-12">
-                    <h4>7. Changes to This Policy</h4>
+                    <h5>6. Cookies</h5>
                 </div><!-- End: Policy Title -->
-                <!-- Start: Policy Content -->
-                <div class="col policy-content-col">
-                    <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes and encourage you to review this policy periodically.</p>
-                </div><!-- End: Policy Content -->
+                <div class="container">
+                    <!-- Start: Policy Content -->
+                    <div class="col policy-content-col">
+                        <p>We use cookies to enhance your user experience, remember your preferences, and provide relevant advertising. You can manage or disable cookies in your browser settings.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
                 <!-- Start: Policy Title -->
                 <div class="col-sm-12">
-                    <h4>8. Contact Us</h4>
+                    <h5>7. Changes to This Policy</h5>
                 </div><!-- End: Policy Title -->
+                <div class="container">
                 <!-- Start: Policy Content -->
-                <div class="col-sm-12 policy-content-col">
-                    <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="#"><span style="color: rgb(33, 37, 41);">help@django-stream.stream</span></a>.</p>
-                </div><!-- End: Policy Content -->
+                    <div class="col policy-content-col">
+                        <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes and encourage you to review this policy periodically.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
+                <!-- Start: Policy Title -->
+                <div class="col-sm-12">
+                    <h5>8. Contact Us</h5>
+                </div><!-- End: Policy Title -->
+                <div class="container">
+                    <!-- Start: Policy Content -->
+                    <div class="col-sm-12 policy-content-col">
+                        <p>If you have questions or concerns about this Privacy Policy, please contact us at <a href="#"><span style="color: rgb(33, 37, 41);">help@django-stream.stream</span></a>.</p>
+                    </div><!-- End: Policy Content -->
+                </div>
                 <div class="col policy-content-col">
                     <p>Thank you for choosing <span class="sub-title-span">DjangoStream</span>. We are dedicated to ensuring a secure and enjoyable streaming experience for all our users.</p>
                 </div>
             </div>
         </div>
-    </div><!-- Start: simple footer -->
-    <div class="footer-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-8 col-sm-6 col-md-6">
-                    <p class="text-start" style="margin-top:5%;margin-bottom:3%;">© 2023 Kamron H.</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-6">
-                    <p class="text-end" style="margin-top:5%;margin-bottom:8%%;font-size:1em;"><a href="privacy-p.html">Privacy Policy</a></p>
-                </div>
-            </div>
-        </div>
-    </div><!-- End: simple footer -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/agency.js"></script>
-    <script src="assets/js/Simple-Slider-swiper-bundle.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
-</body>
-
-</html>
+    </div>
+{% endblock %}
