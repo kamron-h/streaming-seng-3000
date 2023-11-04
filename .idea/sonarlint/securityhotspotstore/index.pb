@@ -70,3 +70,11 @@ d
 4public/static/assets/bootstrap/css/bootstrap.min.css,f/0/f0284372988630fe1babea8d4ccfc48547855032
 S
 #public/static/assets/css/navbar.css,f/2/f27a0c2dd0607026157acb4f14218464436a3e64
+Z
+*public/static/assets/css/media-details.css,e/3/e3eba3e30872c8061edca16546b0990122016719
+\
+,streaming/templates/streaming/privacy_p.html,b/5/b574651a666ccba09b4b8db0688419496bbaab4b
+V
+&public/static/assets/css/privacy-p.css,6/5/658df10c09fd872c90bdf1e579f2120e13885044
+Z
+*streaming/templates/streaming/tv_list.html,8/9/89a8589614a9776665c3be10458f58cf5a7b2f8e

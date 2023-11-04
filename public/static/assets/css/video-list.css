@@ -1,25 +1,26 @@
 #carousel-1 {
-  margin-top: 3em;
+  height: 420px;
+  margin-top: 3.5em;
   position: relative;
 }
 
-@media (min-width: 992px) {
-  #carousel-1 {
-    margin-top: 6em !important;
-  }
-}
+/*@media (min-width: 992px) {*/
+/*  #carousel-1 {*/
+/*    margin-top: 6em !important;*/
+/*  }*/
+/*}*/
 
-@media (min-width: 1200px) {
-  #carousel-1 {
-    margin-top: 6.5em !important;
-  }
-}
+/*@media (min-width: 1200px) {*/
+/*  #carousel-1 {*/
+/*    margin-top: 6.5em !important;*/
+/*  }*/
+/*}*/
 
-@media (min-width: 1400px) {
-  #carousel-1 {
-    margin-top: 5em !important;
-  }
-}
+/*@media (min-width: 1400px) {*/
+/*  #carousel-1 {*/
+/*    margin-top: 5em !important;*/
+/*  }*/
+/*}*/
 
 .filter-word {
   /*display: none;*/

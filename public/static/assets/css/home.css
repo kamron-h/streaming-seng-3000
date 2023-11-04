@@ -30,9 +30,9 @@ a {
 }
 
 .home-view-more {
-  padding: 0 6px;
-  font-size: x-small;
-  color: #000000;
+  padding: 0 6px !important;
+  font-size: x-small !important;
+  color: #000000 !important;
 }
 
 .home-card {
@@ -74,10 +74,14 @@ a {
   margin-left: -10px !important;
 }
 
+.home-badge-type {
+  /*padding-left: 5px;*/
+  padding-right: 1.2em;
+}
+
 .home-card-bottom-badge {
   font-size: xx-small !important;
   background-color: rgba(0,0,0,0.25) !important;
-  padding-left: 4px !important;
 }
 
 .home-paginator {

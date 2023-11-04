@@ -69,7 +69,7 @@ def api_index(request):
 def home(request):
     movies = Movie.objects.all()[:12]  # [:20] Used to limit
     shows = Show.objects.all()[:12]  # [:20] Used to limit
-    cover_movs = movies[:5]  # Movies used in the carousel
+    cover_movs = Movie.objects.exclude(cover_url__isnull=True)[:5]  # Movies used in the carousel
     latest_shows = shows[:6]
     latest_movs = movies[:6]
     # Sort latest_movies in ascending
@@ -106,13 +106,43 @@ def genres(request):
 
 
 def movie_list(request):
-    # Get or 404 the list of movies
-    movies = Movie.objects.all()
-    return render(request, 'streaming/movie_list.html', {'movies': movies})
+    movies = Movie.objects.all()[:12]  # [:20] Used to limit
+    cover_movies = Movie.objects.exclude(cover_url__isnull=True)[:5]  # Movies used in the carousel
+    # Sort latest_movies in ascending
+    if movies.count() > 18:
+        movie_paginate = Paginator(movies, 18)
+        context = {
+            'movies': movies,
+            'cover_movies': cover_movies,
+            'movie_paginate': movie_paginate
+        }
+    else:
+        context = {
+            'movies': movies,
+            'cover_movies': cover_movies,
+        }
+
+    return render(request, 'streaming/movie_list.html', context)
 
 
 def tv_list(request):
-    return render(request, 'streaming/tv_list.html')
+    shows = Show.objects.all()[:12]  # [:20] Used to limit
+    cover_shows = Show.objects.exclude(cover_url__isnull=True)[:5]  # Movies used in the carousel
+    # Sort latest_movies in ascending
+    if shows.count() > 18:
+        show_paginate = Paginator(shows, 18)
+        context = {
+            'shows': shows,
+            'cover_shows': cover_shows,
+            'show_paginate': show_paginate
+        }
+    else:
+        context = {
+            'shows': shows,
+            'cover_shows': cover_shows,
+        }
+
+    return render(request, 'streaming/tv_list.html', context)
 
 
 def video_detail(request, video_id=None):
@@ -123,13 +153,13 @@ def video_detail(request, video_id=None):
                   {'video': video, 'latest_movies': latest_shows})
 
 
-def video_detail_type(request, video_type=None, video_id=None):
+def video_detail_type(request, video_type, video_pk):
     if video_type == "Movie":
-        video = (get_object_or_404(Movie, pk=video_id))
+        video = (get_object_or_404(Movie, pk=video_pk))
         # Sort latest_movies in ascending order based on premiere_date
         video_recs = Movie.objects.all().order_by('premiere_date')[:6]
     else:
-        video = (get_object_or_404(Show, pk=video_id))
+        video = (get_object_or_404(Show, pk=video_pk))
         # Sort latest_movies in ascending order based on premiere_date
         video_recs = Show.objects.all().order_by('premiere_date')[:6]  # [:6] Used to limit
     return render(request, 'streaming/video_detail.html',

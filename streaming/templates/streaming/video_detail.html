@@ -199,30 +199,7 @@
                         {% if video_recs %}
                             {% for video in video_recs %}
                             <!-- Start: Video Card -->
-<!--                            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 portfolio-item"><a class="" href="{% url 'streaming:video_detail_type' video_type=video.type video_id=video.id %}">-->
-<!--                                    <div class="card home-card">-->
-<!--                                        <div class="card-img"><img src="{{ video.thumbnail_url }}"></div>-->
-<!--                                        <div class="card-img-overlay">-->
-<!--                                            <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary home-card-top-badge">HD</span></h6>-->
-<!--                                        </div>-->
-<!--                                        <div class="card-body home-card-body">-->
-<!--                                            <div class="row d-flex">-->
-<!--                                                <div class="col-sm-12">-->
-<!--                                                    &lt;!&ndash; Start: Card Title &ndash;&gt;-->
-<!--                                                    <p class="home-card-title">{{ video.title }}</p>&lt;!&ndash; End: Card Title &ndash;&gt;-->
-<!--                                                </div>-->
-<!--                                                <div class="col-8 col-sm-9">-->
-<!--                                                    <p class="home-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">-->
-<!--                                                            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>-->
-<!--                                                        </svg>&nbsp; 87m</p>-->
-<!--                                                </div>-->
-<!--                                                <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end home-card-bottom-badge">Movie</span></div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </a></div>-->
-                                <!-- End: Video Card -->
-                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="{% url 'streaming:video_detail_type' video_type=video.type video_id=video.id %}">
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2"><a href="{% url 'streaming:video_detail_type' video_type=video.type video_pk=video.pk %}">
                                 <div class="card video-card">
                                     <div class="card-img"><img src="{{ video.thumbnail_url }}" /></div>
                                     <div class="card-img-overlay" title="&quot;{{ video.title }}&quot;">

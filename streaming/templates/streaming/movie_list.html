@@ -3,6 +3,8 @@
 
 {% block head %}
 <title>Movies</title>
+<link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/video-list.css' %}">
 <!--    <link rel="stylesheet" href="{% static 'assets/css/media-details.css' %}">-->
 <!--    <link rel="stylesheet" href="{% static 'assets/css/untitled.css' %}">-->
 <!--    <link rel="stylesheet" href="{% static 'assets/css/video-details.css' %}">-->
@@ -10,92 +12,64 @@
 {% endblock %}
 
 {% block carousel %}
-<!-- Start: Hero Carousel -->
-    <div class="carousel slide" data-bs-ride="carousel" id="carousel-1" style="height: 600px;">
+<div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
         <div class="carousel-inner h-100 home-cover">
-            <div class="carousel-item active h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="mov_cover/training_day_cover-1.webp" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold">Training day</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary home-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p>Duration: 147min</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Genre: Action, Thriller, Crime</p>
-                                        </div>
+            {% if cover_movies %}
+                {% for movie in cover_movies %}
+                    <!-- Carousel Item -->
+                    <div class="carousel-item {% if forloop.first %} active{% endif %} h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="{{ movie.cover_url }}" alt="Slide Image" style="z-index: -1;">
+                        <!-- Start: 1 Row 1 Column -->
+                        <div class="container d-flex flex-column justify-content-center h-100">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
+                                    <div style="max-width: 400px;">
+                                        <h2 class="text-uppercase fw-bold">{{ movie.title }}</h2>
                                         <div class="col">
-                                            <p>Short description, Short description, Short description, Short description, Short description, Short description, Short description.</p>
-                                        </div>
+                                            <div class="row">
+                                                {% if movie.length %}
+                                                <div class="col-10 col-xxl-6">
+                                                    <p><span style="font-weight: 700;">Duration</span>:  {{ movie.length }}</p>
+                                                </div>
+                                                {% endif %}
+                                                <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">{{ movie.quality }}</span></div>
+                                                <div class="col-12">
+                                                    <p><span style="font-weight: 700;">Genre</span>:
+                                                        {% for genre in movie.genres.all %}
+                                                            {% if forloop.last %}<span title="{{ genre.description }}"> {{ genre }}.</span>
+                                                            {% else %}
+                                                            <span title="{{ genre.description }}"> {{ genre }}, </span>
+                                                            {% endif %}
+                                                        {% endfor %} </p>
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ movie.description }}</p>
+                                                </div>
+                                            </div>
+                                        </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' video_id=movie.id %}">Watch Now</a>
                                     </div>
-                                </div><a class="btn btn-primary btn-lg me-2 home-cover-btn" role="button" href="video-detail.html">Watch Now</a>
+                                </div>
                             </div>
                         </div>
+                        <!-- End: 1 Row 1 Column -->
                     </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="mov_cover/mad_max_1.webp" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold home-cover-title">Mad max</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary home-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p class="home-cover-p">Duration: 147min</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p class="home-cover-p">Genre: Action, Thriller, Crime</p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="home-cover-descrip">Short description, Short description, Short description, Short description, Short description, Short description, Short description.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 home-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
-            <div class="carousel-item h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="mov_cover/alien_cover_0.webp" alt="Slide Image" style="z-index: -1;"><!-- Start: 1 Row 1 Column -->
-                <div class="container d-flex flex-column justify-content-center h-100">
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
-                            <div style="max-width: 400px;">
-                                <h2 class="text-uppercase fw-bold">Alien</h2>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col-2 col-xxl-2"><span class="badge bg-primary home-cover-badge">HD</span></div>
-                                        <div class="col-10 col-xxl-6">
-                                            <p>Duration: 147min</p>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Genre: Action, Thriller, Crime</p>
-                                        </div>
-                                        <div class="col">
-                                            <p>Short description, Short description, Short description, Short description, Short description, Short description, Short description.</p>
-                                        </div>
-                                    </div>
-                                </div><a class="btn btn-primary btn-lg me-2 home-cover-btn" role="button" href="video-detail.html">Watch Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End: 1 Row 1 Column -->
-            </div>
+                    <!-- End of Carousel Item -->
+                {% endfor %}
+            {% else %}
+                <h1>Sorry, unable to fetch the movies list..</h1>
+            {% endif %}
         </div>
         <div>
             <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><!-- End: Previous -->
             <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a><!-- End: Next -->
         </div>
-        <div class="carousel-indicators"><button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button> <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="2"></button></div>
-    </div>
-<!-- End: Hero Carousel -->
+        <div class="carousel-indicators">
+            <div class="carousel-indicators">
+                {% for movie in cover_movies %}
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></button>
+                {% endfor %}
+            </div>
+        </div>
+    </div><!-- End: Hero Carousel -->
 {% endblock %}
 
 {% block content %}
@@ -110,81 +84,45 @@
                 <div class="dropdown d-flex justify-content-end"><button class="btn btn-primary dropdown-toggle d-flex align-items-center" aria-expanded="false" data-bs-toggle="dropdown" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-filter-circle-fill">
                             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM3.5 5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zM5 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"></path>
                         </svg>&nbsp;<span class="filter-word">Filter</span></button>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="#">Release Year Ascending</a><a class="dropdown-item" href="#">Release Year Descending</a></div>
                 </div>
             </div>
             <!-- End: Filter Dropdown Menu -->
-            <!-- Start: Top Pagination -->
-            <div class="col-xl-12">
-                <!-- Start: Filter Dropdown Menu -->
-                <nav class="d-flex justify-content-center align-items-center home-paginator">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                    </ul>
-                </nav><!-- End: Filter Dropdown Menu -->
-            </div><!-- End: Top Pagination -->
             <div class="col-12">
                 <div class="row" style="padding-top: 14px;">
                     {% if movies %}
                         {% for movie in movies %}
-                        <!-- Start: Video Card -->
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2"><a href="{% url 'streaming:video_detail' video_id=movie.id %}">
-                                <div class="card video-card">
+                            <!-- Start: Video Card -->
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 portfolio-item"><a class="" href="{% url 'streaming:video_detail_type' video_type=movie.type video_pk=movie.pk %}">
+                                <div class="card home-card">
                                     <div class="card-img"><img src="{{ movie.thumbnail_url }}"></div>
                                     <div class="card-img-overlay">
-                                        <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
+                                        <h6 class="text-start" style="text-align: left;"><span class="badge home-card-top-badge">HD</span></h6>
                                     </div>
-                                    <div class="card-body video-card-body">
+                                    <div class="card-body home-card-body">
                                         <div class="row d-flex">
                                             <div class="col-sm-12">
                                                 <!-- Start: Card Title -->
-                                                <p class="video-card-title">{{ movie.title }}</p><!-- End: Card Title -->
+                                                <p class="home-card-title">{{ movie.title }}</p><!-- End: Card Title -->
                                             </div>
                                             <div class="col-8 col-sm-9">
-                                                <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
+
+                                                <p class="home-card-p">{% if movie.premier_date %}{{ movie.premier_date }}{% endif %}&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
                                                         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                    </svg>&nbsp; 87m</p>
+                                                    </svg>&nbsp; {% if movie.length %}{{ movie.length }}{% endif %}</p>
                                             </div>
-                                            <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
+                                            <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center home-badge-type" style="padding-left: 5px"><span class="badge d-flex justify-content-center align-items-end home-card-bottom-badge">Movie</span></div>
                                         </div>
                                     </div>
-                                </div>
-                            </a></div>
-                        <!-- End: Video Card -->
+                                </div></a>
+                            </div>
+                                <!-- End: Video Card -->
                         {% endfor %}
                     {% else %}
                         <h1>Sorry, unable to fetch the movies list..</h1>
                     {% endif %}
-                    <!-- Start: Video Card -->
-<!--                    <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2"><a href="video_detail.html">-->
-<!--                            <div class="card video-card">-->
-<!--                                <div class="card-img"><img src="assets/img/movies/leprechaun_0.jpeg"></div>-->
-<!--                                <div class="card-img-overlay">-->
-<!--                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>-->
-<!--                                </div>-->
-<!--                                <div class="card-body video-card-body">-->
-<!--                                    <div class="row d-flex">-->
-<!--                                        <div class="col-sm-12">-->
-<!--                                            &lt;!&ndash; Start: Card Title &ndash;&gt;-->
-<!--                                            <p class="video-card-title">NONONONONO</p>&lt;!&ndash; End: Card Title &ndash;&gt;-->
-<!--                                        </div>-->
-<!--                                        <div class="col-8 col-sm-9">-->
-<!--                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">-->
-<!--                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>-->
-<!--                                                </svg>&nbsp; 87m</p>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </a></div>&lt;!&ndash; End: Video Card &ndash;&gt;-->
                 </div>
         </div><!-- End: Trending Row -->
     </div>
+</div>
 {% endblock %}
