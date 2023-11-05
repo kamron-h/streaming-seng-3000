@@ -5,10 +5,6 @@
 <title>Movies</title>
 <link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
 <link rel="stylesheet" href="{% static 'assets/css/video-list.css' %}">
-<!--    <link rel="stylesheet" href="{% static 'assets/css/media-details.css' %}">-->
-<!--    <link rel="stylesheet" href="{% static 'assets/css/untitled.css' %}">-->
-<!--    <link rel="stylesheet" href="{% static 'assets/css/video-details.css' %}">-->
-<!--    <link rel="stylesheet" href="{% static 'assets/css/video-list.css' %}">-->
 {% endblock %}
 
 {% block carousel %}
@@ -42,10 +38,10 @@
                                                         {% endfor %} </p>
                                                 </div>
                                                 <div class="col">
-                                                    <p>{{ movie.description }}</p>
+                                                    <p>{{ movie.description|truncatechars:300 }}</p>
                                                 </div>
                                             </div>
-                                        </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' video_id=movie.id %}">Watch Now</a>
+                                        </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail_type' video_type=movie.type video_pk=movie.pk %}">Watch Now</a>
                                     </div>
                                 </div>
                             </div>

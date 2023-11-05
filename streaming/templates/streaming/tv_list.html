@@ -77,7 +77,7 @@
     <div class="container">
         <!-- Start: Trending Row -->
         <div class="row" style="padding-top: 5em;">
-            <div class="col-12 col-sm-6 d-flex justify-content-start">
+            <div class="col-7 col-sm-6 d-flex justify-content-start">
                 <h4 class="text-end">TV Shows</h4>
             </div>
             <div class="col-12">
@@ -85,7 +85,7 @@
                     {% if shows %}
                         {% for show in shows %}
                         <!-- Start: Video Card -->
-                                <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 portfolio-item"><a class="portfolio-link" href="{% url 'streaming:video_detail' video_id=show.id %}">
+                                <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 portfolio-item"><a class="portfolio-link" href="{% url 'streaming:video_detail_type' video_type=show.type video_pk=show.pk %}">
                                         <div class="card home-card">
                                             <div class="card-img"><img src="{{ show.thumbnail_url }}"></div>
                                             <div class="card-img-overlay">
