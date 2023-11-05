@@ -22,7 +22,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
                                     <div style="max-width: 400px;">
-                                        <h2 class="text-uppercase fw-bold">{{ movie.title }}</h2>
+                                        <h2 class="text-uppercase fw-bold video-list-cover-title">{{ movie.title }}</h2>
                                         <div class="col">
                                             <div class="row">
                                                 {% if movie.length %}
@@ -43,7 +43,7 @@
                                                     {% endif %}
                                                 </div>
                                                 <div class="col">
-                                                    <p>{{ movie.description }}</p>
+                                                    <p>{{ movie.description|truncatechars:200 }}</p>
                                                 </div>
                                             </div>
                                         </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' video_id=movie.id %}">Watch Now</a>
