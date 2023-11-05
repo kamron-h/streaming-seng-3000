@@ -43,7 +43,7 @@
                                                         {% endfor %} </p>
                                                 </div>
                                                 <div class="col">
-                                                    <p>{{ show.description|truncatechars:300 }}</p>
+                                                    <p>{{ show.description|truncatechars:200 }}</p>
                                                 </div>
                                             </div>
                                         </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' video_id=show.id %}">Watch Now</a>
