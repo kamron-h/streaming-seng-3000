@@ -46,6 +46,7 @@ a {
 }
 
 .video-list-cover-title {
+  margin-top: 1em;
 }
 
 .video-list-cover-descrip {
@@ -57,6 +58,8 @@ a {
 .video-list-cover-btn {
   color: white;
   background-color: rgba(0,0,0,0.5);
+  margin-bottom: 1em;
+  font-size: inherit;
 }
 
 /*.video-card {*/
