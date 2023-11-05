@@ -38,7 +38,7 @@
                                                         {% endfor %} </p>
                                                 </div>
                                                 <div class="col">
-                                                    <p>{{ movie.description|truncatechars:300 }}</p>
+                                                    <p>{{ movie.description|truncatechars:200 }}</p>
                                                 </div>
                                             </div>
                                         </div><a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail_type' video_type=movie.type video_pk=movie.pk %}">Watch Now</a>
