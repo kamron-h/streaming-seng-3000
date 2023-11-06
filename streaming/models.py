@@ -195,6 +195,8 @@ class Country(models.Model):
 
 class Genre(models.Model):
     genre = models.CharField(max_length=20, unique=True)
+    thumbnail = models.ImageField(upload_to='thumbnails/', null=True, blank=True)
+    thumbnail_url = models.URLField(null=True, blank=True)
     description = models.TextField(max_length=300, null=True, blank=True)
 
     def __str__(self):

@@ -91,28 +91,32 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6 col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link movie-card" href="unused/action-cat.html">
-                        <div class="portfolio-hover movie-card"></div><img class="img-fluid" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Fk0XbKEBmyw4jVa6GT53bkuAWue3.jpg&amp;f=1&amp;nofb=1&amp;ipt=fda0289175c5735af7c3db3cc201dc366282c43c9349c6189948c9d3d78c8201&amp;ipo=images">
+                {% if genres_ls.exists %}
+                {% for genre in genres_ls %}
+                <div class="col-6 col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link movie-card" href="{% url 'streaming:genre_list' genre_pk=genre.pk %}">
+                        <div class="portfolio-hover movie-card"><img class="img-fluid aspect-ratio-img" src="{{ genre.thumbnail_url }}"></div>
                         <div class="portfolio-caption movie-card-btm">
-                            <h4>Action</h4>
+                            <h4>{{ genre }}</h4>
                         </div>
                     </a></div>
-                <div class="col-6 col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="unused/science-cat.html">
-                        <div class="portfolio-hover movie-card">
-                            <div class="portfolio-hover-content"></div>
-                        </div><img class="img-fluid" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic6.businessinsider.com%2Fimage%2F55c3bd76dd0895f26f8b469d-935-525%2Fthe-martian.png&amp;f=1&amp;nofb=1&amp;ipt=6520f5ac13aeb0c0f0bd955a1d3b8a75f5ca855dd8ce0f9c9e600fdb709d055d&amp;ipo=images">
-                        <div class="portfolio-caption movie-card-btm">
-                            <h4>Science Fiction</h4>
-                        </div>
-                    </a></div>
-                <div class="col-6 col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="unused/science-cat.html">
-                        <div class="portfolio-hover movie-card">
-                            <div class="portfolio-hover-content"></div>
-                        </div><img class="img-fluid" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/e16275d9-c165-4442-d153-05ac7efabb00/computer">
-                        <div class="portfolio-caption movie-card-btm">
-                            <h4>African American</h4>
-                        </div>
-                    </a></div>
+                {% endfor %}
+                {% endif %}
+<!--                <div class="col-6 col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="unused/science-cat.html">-->
+<!--                        <div class="portfolio-hover movie-card">-->
+<!--                            <div class="portfolio-hover-content"></div>-->
+<!--                        </div><img class="img-fluid" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fstatic6.businessinsider.com%2Fimage%2F55c3bd76dd0895f26f8b469d-935-525%2Fthe-martian.png&amp;f=1&amp;nofb=1&amp;ipt=6520f5ac13aeb0c0f0bd955a1d3b8a75f5ca855dd8ce0f9c9e600fdb709d055d&amp;ipo=images">-->
+<!--                        <div class="portfolio-caption movie-card-btm">-->
+<!--                            <h4>Science Fiction</h4>-->
+<!--                        </div>-->
+<!--                    </a></div>-->
+<!--                <div class="col-6 col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="unused/science-cat.html">-->
+<!--                        <div class="portfolio-hover movie-card">-->
+<!--                            <div class="portfolio-hover-content"></div>-->
+<!--                        </div><img class="img-fluid" src="https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/e16275d9-c165-4442-d153-05ac7efabb00/computer">-->
+<!--                        <div class="portfolio-caption movie-card-btm">-->
+<!--                            <h4>African American</h4>-->
+<!--                        </div>-->
+<!--                    </a></div>-->
             </div>
         </div>
     </section>

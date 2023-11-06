@@ -1,0 +1,124 @@
+{% extends 'streaming/base.html' %}
+{% load static %}
+
+{% block head %}
+<title>{{ genre }}</title>
+<link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/video-list.css' %}">
+<!--<link rel="stylesheet" href="{% static 'assets/css/video-details.css' %}">-->
+{% endblock %}
+
+{% block style %}{% endblock %}
+
+{% block carousel %}
+<div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
+        <div class="carousel-inner h-100 home-cover">
+            {% if video_recs %}
+                {% for video in video_recs %}
+                    <!-- Carousel Item -->
+                    <div class="carousel-item {% if forloop.first %} active{% endif %} h-100"><img class="w-100 d-block position-absolute h-100 fit-cover" src="{{ video.cover_url }}" alt="Slide Image" style="z-index: -1;">
+                        <!-- Start: 1 Row 1 Column -->
+                        <div class="container d-flex flex-column justify-content-center h-100">
+                            <div class="row">
+                                <div class="col-md-6 col-xl-4 col-xxl-6 offset-md-2">
+                                    <div style="max-width: 400px;">
+                                        <h2 class="text-uppercase fw-bold video-list-cover-title">{{ video.title }}</h2>
+                                        <div class="col">
+                                            <div class="row">
+                                                {% if video.length %}
+                                                <div class="col-10 col-xxl-6">
+                                                    <p><span style="font-weight: 700;">Duration</span>:  {{ video.length }}</p>
+                                                </div>
+                                                {% endif %}
+                                                <div class="col-2 col-xxl-2"><span class="badge bg-primary video-list-cover-badge">{{ video.quality }}</span></div>
+                                                <div class="col-12">
+                                                    {% if video.genres.all %}
+                                                    <p><span style="font-weight: 700;">Genre</span>:
+                                                        {% for genre in video.genres.all %}
+                                                            {% if forloop.last %}<span title="{{ genre.description }}"> {{ genre }}.</span>
+                                                            {% else %}
+                                                            <span title="{{ genre.description }}"> {{ genre }}, </span>
+                                                            {% endif %}
+                                                        {% endfor %} </p>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col">
+                                                    <p>{{ video.description|truncatechars:200 }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% comment %}
+                                            <a class="btn btn-primary btn-lg me-2 video-list-cover-btn" role="button" href="{% url 'streaming:video_detail' video_type=video.type video_pk=video.pk %}"><h4>Watch Now</h4></a>
+                                        {% endcomment %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End: 1 Row 1 Column -->
+                    </div>
+                    <!-- End of Carousel Item -->
+                {% endfor %}
+            {% else %}
+                <h1>Sorry, unable to fetch the movies list..</h1>
+            {% endif %}
+        </div>
+        <div>
+            <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><!-- End: Previous -->
+            <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a><!-- End: Next -->
+        </div>
+        <div class="carousel-indicators">
+            <div class="carousel-indicators">
+                {% for video in video_recs %}
+                <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></button>
+                {% endfor %}
+            </div>
+        </div>
+    </div><!-- End: Hero Carousel -->
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <!-- Start: Trending Row Single -->
+        <div class="row" style="padding-top: 5em;">
+            <div class="col-8 d-flex justify-content-start">
+                <h4 class="text-end"><strong>{{ genre }}</strong></h4>
+            </div>
+            <div class="col-12">
+                <div class="row" style="padding-top: 14px;">
+                    {% if videos %}
+                        {% for video in videos %}
+                        <!-- Start: Video Card -->
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                                <a href="{% url 'streaming:video_detail_type' video_type=video.type video_pk=video.pk %}">
+                                <div>
+                                <div class="card home-card">
+                                    <div class="card-img"><img src="{{ video.thumbnail_url }}"/></div>
+                                    <div class="card-img-overlay" title="&quot;{{ video.title }}&quot;">
+                                        <h6 class="text-start" style="text-align: left;"><span class="badge video-card-top-badge">{{ video.quality }}</span></h6>
+                                    </div>
+                                    <div class="card-body video-card-body">
+                                        <div class="row d-flex">
+                                            <div class="col-sm-12">
+                                                <p class="text-truncate video-card-title">{{ video.title }}</p>
+                                            </div>
+                                            <div class="col-8 col-sm-9">
+                                                <p class="home-card-p">{% if video.premier_date %}{{ video.premier_date }}{% endif %}&nbsp;&nbsp;
+                                                    {% if video.premier_date and video.length %}<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
+                                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+                                                    </svg>&nbsp; {% endif %}
+                                                    {% if video.length %}{{ video.length }}{% endif %}</p>
+                                            </div>
+                                            <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center lower-badge-col home-badge-type"><span class="badge d-flex justify-content-center align-items-end video-card-bottom-badge">{{ video.type }}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div></a></div>
+                        {% endfor %}
+                    {% else %}
+                        <h1>Sorry, unable to fetch the video list...</h1>
+                    {% endif %}
+                </div>
+            </div>
+        </div><!-- End: Trending Row Single -->
+    </div>
+{% endblock %}
