@@ -30,7 +30,9 @@ urlpatterns = [
     path('api/index/', include('streaming.urls_api')),
     path('api/crud/', views.api_crud, name='api_crud'),
 
-    path('genres/', views.genres, name='genre_list'),
+    path('genres/', views.genres, name='genre_categories'),
+    path('genres/<str:genre_pk>/', views.genre_list, name='genre_list'),
+    path('genres/<str:video_type>/<int:genre_pk>/', views.genre_list, name='genre_list_type'),
     path('movies/', views.movie_list, name='movie_list'),
     # TODO: Change 'tv_list' to 'show_list'
     path('shows/', views.tv_list, name='tv_list'),

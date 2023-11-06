@@ -1,11 +1,14 @@
+from random import random
+
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from psycopg.types import none
 from rest_framework.generics import get_object_or_404
 
 # Create your views here.
 from streaming.forms import MovieForm, ActorForm
-from streaming.models import Actor, Movie, Show
+from streaming.models import Actor, Movie, Show, Genre
 
 CRUD_URL = 'streaming/api_crud.html'
 
@@ -101,10 +104,6 @@ def crud(request):
     return render(request, 'streaming/api_crud.html', {'movies': movies, actors: 'actors'})
 
 
-def genres(request):
-    return render(request, 'streaming/genres.html')
-
-
 def movie_list(request):
     movies = Movie.objects.all()[:12]  # [:20] Used to limit
     cover_movies = Movie.objects.exclude(cover_url__isnull=True)[:5]  # Movies used in the carousel
@@ -143,6 +142,56 @@ def tv_list(request):
         }
 
     return render(request, 'streaming/tv_list.html', context)
+
+
+def genres(request):
+    genres_ls = Genre.objects.all()
+    return render(request,'streaming/genres.html', {'genres_ls': genres_ls})
+
+
+def genre_list(request, video_type=None, genre_pk=None):
+    genre = get_object_or_404(Genre, pk=genre_pk)
+    context = {}
+    if video_type == "Movie":
+        # Get all the movies with the given genre pk
+        # Sort latest_movies in ascending order based on premiere_date where movie.thumbnail_url is not null
+        # Place the sorted movies in a list called 'movie_recs'
+        movies = Movie.objects.filter(genres__pk=genre_pk)
+        movie_recs = Movie.objects.filter(genres__pk=genre_pk, cover_url__isnull=False).random_order()
+        context = {
+            'genre': genre,
+            'videos': movies,
+            'video_recs': movie_recs
+        }
+    elif video_type == "Show":
+        # Get all the shows with the given genre pk
+        # Sort latest_shows in ascending order based on premiere_date where show.thumbnail_url is not null
+        # Place the sorted shows in a list called 'show_recs'
+        shows = Show.objects.filter(genres__pk=genre_pk)
+        show_recs = Show.objects.filter(genres__pk=genre_pk, cover_url__isnull=False).order_by('premiere_date')
+        context = {
+            'genre': genre,
+            'videos': shows,
+            'video_recs': show_recs
+        }
+    elif video_type != "Movie" and video_type != "Show":
+        # Get all the shows with the given genre pk Sort latest_movies & latest_shows in ascending order based on
+        # premiere_date where movie.thumbnail_url & show.thumbnail_url are not individually null. Place the sorted
+        # movies & shows combined in one list called 'video_recs'
+        movies = Movie.objects.filter(genres__pk=genre_pk)
+        shows = Show.objects.filter(genres__pk=genre_pk)
+        movie_recs = Movie.objects.filter(genres__pk=genre_pk, cover_url__isnull=False).order_by('premiere_date')
+        show_recs = Show.objects.filter(genres__pk=genre_pk, cover_url__isnull=False).order_by('premiere_date')
+        videos = list(movies) + list(shows)
+        video_recs = list(movie_recs) + list(show_recs)
+
+        # random.shuffle(videos)
+        context = {
+            'genre': genre,
+            'videos': videos,
+            'video_recs': video_recs
+        }
+    return render(request, 'streaming/genre_list.html', context)
 
 
 def video_detail(request, video_id=None):

@@ -59,7 +59,7 @@ a {
   color: white;
   background-color: rgba(0,0,0,0.5);
   margin-bottom: 1em !important;
-  font-size: inherit !important;
+  font-size: smaller !important;
 }
 
 /*.video-card {*/

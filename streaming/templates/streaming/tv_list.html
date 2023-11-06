@@ -98,9 +98,11 @@
                                                         <p class="home-card-title">{{ show.title }}</p><!-- End: Card Title -->
                                                     </div>
                                                     <div class="col-8 col-sm-9">
-                                                        <p class="home-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
+                                                        <p class="home-card-p">{% if show.premier_date %}{{ show.premier_date }}{% endif %}&nbsp;&nbsp;
+                                                            {% if show.premier_date and show.length %}<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
                                                                 <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                            </svg>&nbsp; {{ show.length }}</p>
+                                                            </svg>&nbsp; {% endif %}
+                                                            {% if show.length %}{{ show.length }}{% endif %}</p>
                                                     </div>
                                                     <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center home-badge-type" style="padding-left: 5px"><span class="badge bg-primary d-flex justify-content-center align-items-end home-card-bottom-badge">Series</span></div>
                                                 </div>

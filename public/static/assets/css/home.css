@@ -82,6 +82,7 @@ a {
 .home-card-bottom-badge {
   font-size: xx-small !important;
   background-color: rgba(0,0,0,0.25) !important;
+  margin-right: 1em !important;
 }
 
 .home-paginator {
