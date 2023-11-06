@@ -3,7 +3,6 @@ from random import random
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from psycopg.types import none
 from rest_framework.generics import get_object_or_404
 
 # Create your views here.
