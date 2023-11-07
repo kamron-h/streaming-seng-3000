@@ -1,9 +1,2 @@
 
-PWeb:AvoidCommentedOutCodeCheck"Remove this commented out code.(å÷ì 8±×¥º¹1
-PWeb:AvoidCommentedOutCodeCheck"Remove this commented out code.(ØÃ í8«×¥º¹1
-PWeb:AvoidCommentedOutCodeCheck	"Remove this commented out code.(ä©Ìè8®×¥º¹1
-PWeb:AvoidCommentedOutCodeCheck
-"Remove this commented out code.(Î°ï‘8¯×¥º¹1
-PWeb:AvoidCommentedOutCodeCheck"Remove this commented out code.(å÷ì 8ÓþÎÁ¹1
-NWeb:ImgWithoutAltCheckb"%Add an "alt" attribute to this image.(•Ø•—8äÎÇÁ¹1
-NWeb:ImgWithoutAltCheck"%Add an "alt" attribute to this image.(ÿ’Šô8õŠ§º¹1
+NWeb:ImgWithoutAltCheck^"%Add an "alt" attribute to this image.(•Ø•—8äÎÇÁ¹1

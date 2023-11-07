@@ -1,5 +1,5 @@
 
-ppython:S1192+"LDefine a constant instead of duplicating this literal 'thumbnails/' 4 times.(²•¾¤ÿÿÿÿÿ8ûÍÃÇµ1
+ppython:S1192+"LDefine a constant instead of duplicating this literal 'thumbnails/' 5 times.(²•¾¤ÿÿÿÿÿ8ûÍÃÇµ1
 mpython:S1192"NDefine a constant instead of duplicating this literal 'North America' 4 times.( «À8½ÖƒÄµ1
 Bpython:S125"Remove this commented out code.(¼Ì•äøÿÿÿÿ8½ÖƒÄµ1
 <python:S6553"Remove this "null=True" flag.(«µ§Ş8½ÖƒÄµ1
@@ -20,7 +20,7 @@ Ypython:S1135‰"4Complete the task associated to this "TODO" comment.(˜ëƒĞûÿÿ
 Cpython:S125Ÿ"Remove this commented out code.(µÓçäÿÿÿÿÿ8­å°Òµ1
 =python:S6553¼"Remove this "null=True" flag.(ä¬æ×8®å°Òµ1
 =python:S6553¾"Remove this "null=True" flag.(«µ§Ş8•ŞÜÔµ1
-Bpython:S6553Æ"Remove this "null=True" flag.(¸Ùòøÿÿÿÿ8ùŞÔµ1
-=python:S6553Î"Remove this "null=True" flag.(ä¬æ×8Õá€îµ1
-=python:S6553Ğ"Remove this "null=True" flag.(«µ§Ş8­Íîµ1
-Cpython:S125Ö"Remove this commented out code.(ˆ“ñ€ÿÿÿÿÿ8®å°Òµ1
+Bpython:S6553È"Remove this "null=True" flag.(¸Ùòøÿÿÿÿ8ùŞÔµ1
+=python:S6553Ğ"Remove this "null=True" flag.(ä¬æ×8Õá€îµ1
+=python:S6553Ò"Remove this "null=True" flag.(«µ§Ş8­Íîµ1
+Cpython:S125Ø"Remove this commented out code.(ˆ“ñ€ÿÿÿÿÿ8®å°Òµ1

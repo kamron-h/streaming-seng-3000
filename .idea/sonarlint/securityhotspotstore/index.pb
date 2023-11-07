@@ -78,3 +78,7 @@ V
 &public/static/assets/css/privacy-p.css,6/5/658df10c09fd872c90bdf1e579f2120e13885044
 Z
 *streaming/templates/streaming/tv_list.html,8/9/89a8589614a9776665c3be10458f58cf5a7b2f8e
+Y
+)streaming/templates/streaming/genres.html,f/d/fd1df2d4633c4f4d215da874741a37af800c5e79
+]
+-streaming/templates/streaming/genre_list.html,1/8/18338bddadf1fc3b8e35fa1562adfa81d74f9977

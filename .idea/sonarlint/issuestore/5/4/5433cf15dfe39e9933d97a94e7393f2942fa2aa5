@@ -1,5 +1,5 @@
 
-tpython:S117"VRename this local variable "Model" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªíÂú8ó†”¹¹1
-}python:S117"ZRename this local variable "ModelForm" to match the regular expression ^[_a-z][a-z0-9_]*$.(é†Úºúÿÿÿÿ8ó†”¹¹1
-Bpython:S125^"Remove this commented out code.(ù“òùÿÿÿÿ8ó†”¹¹1
-Cpython:S125©"Remove this commented out code.(÷ËÏûÿÿÿÿ8ü†”¹¹1
+tpython:S117"VRename this local variable "Model" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªíÂú8Ø¦ë•º1
+}python:S117"ZRename this local variable "ModelForm" to match the regular expression ^[_a-z][a-z0-9_]*$.(é†Úºúÿÿÿÿ8Ø¦ë•º1
+Bpython:S125`"Remove this commented out code.(ù“òùÿÿÿÿ8Ø¦ë•º1
+Cpython:S125Ù"Remove this commented out code.(÷ËÏûÿÿÿÿ8Ø¦ë•º1
