@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app import views
 from streaming import views as stream_views
 
 urlpatterns = [
-    path('', include('streaming.urls')),
-    path('api/', stream_views.api_index, name='api_index'),
+    path('', include(('streaming.urls', 'streaming'), namespace='streaming')),
+    # path('', include('streaming.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),  # This includes Django auth URLs
+    path('api/', stream_views.api_index, name='api_index'),
+    path('members/', include(('members.urls', 'members'), namespace='members')),
+    # path('member/', include('django.contrib.auth.urls')),  # Gaining Access to Auth Sys.
 ]
 
 # path('', views.index, name='index'),

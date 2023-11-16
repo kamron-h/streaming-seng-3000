@@ -43,6 +43,12 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'streaming:tv_list' %}">TV Shows</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'streaming:genre_categories' %}">genres</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'streaming:api_main' %}">API</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link rounded" href="{% url 'members:logout' %}">Log Out</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'members:login' %}">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'members:register_user' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

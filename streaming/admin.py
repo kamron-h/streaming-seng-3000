@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import Movie, Actor, Playlist, Genre, Rating, \
     Comment, Show, ShowActorRole, Episode, Language, Season, \
-    Country
+    Country, Member
 
 # Register your models here.
+admin.site.register(Member)
 admin.site.register(Movie)
 admin.site.register(Actor)
 admin.site.register(Genre)

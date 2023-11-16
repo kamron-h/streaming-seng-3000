@@ -1,7 +1,7 @@
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
-
 # from django.core.exceptions import ValidationError
 
 
@@ -20,6 +20,24 @@ REGION_CHOICES = (
     ('North East Africa', 'North East Africa'),
     ('Caribbean', 'Caribbean'),
 )
+
+
+# Create member model with attributes
+class Member(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=255, null=True, blank=True)
+    GENDER_CHOICES = (('M', 'Male'), ('F', 'Female'))
+    gender = models.CharField(max_length=7, choices=GENDER_CHOICES, default='M', blank=True)
+    dob = models.DateField(null=True, blank=True)
+    address = models.CharField(max_length=60, null=True, blank=True)
+    city = models.CharField(max_length=35, null=True, blank=True)
+    state = models.CharField(max_length=14, null=True, blank=True)
+    zipcode = models.CharField(max_length=5, null=True, blank=True)
+    country = models.CharField(max_length=25, null=True, blank=True)
+    bio = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.first_name
 
 
 # Create your models here.
@@ -153,10 +171,9 @@ class Comment(models.Model):
         ('archived', 'Archived'),
         ('deleted', 'Deleted'),
     ]
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(Member, on_delete=models.DO_NOTHING)
     message = models.TextField()
     timestamp = models.DateTimeField(default=timezone.now)
-    # timestamp = models.DateTimeField(null=True)
     parent_comment = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='published')
 
