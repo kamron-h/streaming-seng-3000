@@ -1,26 +1,32 @@
 
-ppython:S1192+"LDefine a constant instead of duplicating this literal 'thumbnails/' 5 times.(²•¾¤ÿÿÿÿÿ8ûÍÃÇµ1
-mpython:S1192"NDefine a constant instead of duplicating this literal 'North America' 4 times.( «À8½ÖƒÄµ1
-Bpython:S125"Remove this commented out code.(¼Ì•äøÿÿÿÿ8½ÖƒÄµ1
-<python:S6553"Remove this "null=True" flag.(«µ§Ş8½ÖƒÄµ1
-<python:S6553"Remove this "null=True" flag.(ÖÄ²8½ÖƒÄµ1
-Apython:S6553'"Remove this "null=True" flag.(È±¾£ÿÿÿÿÿ8ëù³Çµ1
-<python:S6553("Remove this "null=True" flag.(Åıßò8üÍÃÇµ1
-Apython:S6553."Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8«å°Òµ1
-Apython:S6553:"Remove this "null=True" flag.(Æî ûÿÿÿÿ8¬å°Òµ1
-<python:S6553;"Remove this "null=True" flag.(ÖÄ²8­å°Òµ1
-Apython:S6553I"Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8­å°Òµ1
-<python:S6553`"Remove this "null=True" flag.(«µ§Ş8­å°Òµ1
-<python:S6553g"Remove this "null=True" flag.( £ì8­å°Òµ1
-=python:S6553‡"Remove this "null=True" flag.(Şü¨÷8­å°Òµ1
-Bpython:S6553ˆ"Remove this "null=True" flag.(àØãûÿÿÿÿ8­å°Òµ1
-=python:S6553"Remove this "null=True" flag.(ùêœñ8­å°Òµ1
-Bpython:S6553"Remove this "null=True" flag.(Ò„É…øÿÿÿÿ8®å°Òµ1
-Ypython:S1135‰"4Complete the task associated to this "TODO" comment.(˜ëƒĞûÿÿÿÿ8­å°Òµ1
-Cpython:S125Ÿ"Remove this commented out code.(µÓçäÿÿÿÿÿ8­å°Òµ1
-=python:S6553¼"Remove this "null=True" flag.(ä¬æ×8®å°Òµ1
-=python:S6553¾"Remove this "null=True" flag.(«µ§Ş8•ŞÜÔµ1
-Bpython:S6553È"Remove this "null=True" flag.(¸Ùòøÿÿÿÿ8ùŞÔµ1
-=python:S6553Ğ"Remove this "null=True" flag.(ä¬æ×8Õá€îµ1
-=python:S6553Ò"Remove this "null=True" flag.(«µ§Ş8­Íîµ1
-Cpython:S125Ø"Remove this commented out code.(ˆ“ñ€ÿÿÿÿÿ8®å°Òµ1
+ppython:S1192="LDefine a constant instead of duplicating this literal 'thumbnails/' 5 times.(²•¾¤ÿÿÿÿÿ8×£ñ³»1
+mpython:S1192"NDefine a constant instead of duplicating this literal 'North America' 4 times.( «À8Ø£ñ³»1
+Bpython:S125"Remove this commented out code.(¼Ì•äøÿÿÿÿ8­İú³»1
+Apython:S6553"Remove this "null=True" flag.(ı² üÿÿÿÿ8Ø£ñ³»1
+<python:S6553 "Remove this "null=True" flag.(®ØÕ·8Ø£ñ³»1
+<python:S6553!"Remove this "null=True" flag.(š²•Ò8Ø£ñ³»1
+Apython:S6553""Remove this "null=True" flag.(©ûõğùÿÿÿÿ8Ø£ñ³»1
+<python:S6553#"Remove this "null=True" flag.(¶ë°š8Ø£ñ³»1
+<python:S6553$"Remove this "null=True" flag.(œ¥Ó8Ø£ñ³»1
+;python:S6553%"Remove this "null=True" flag.(ÓÈÂf8Ù£ñ³»1
+<python:S6553/"Remove this "null=True" flag.(«µ§Ş8Ù£ñ³»1
+<python:S65530"Remove this "null=True" flag.(ÖÄ²8Ù£ñ³»1
+Apython:S65539"Remove this "null=True" flag.(È±¾£ÿÿÿÿÿ8Ù£ñ³»1
+<python:S6553:"Remove this "null=True" flag.(Åıßò8Ù£ñ³»1
+Apython:S6553@"Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8Ù£ñ³»1
+Apython:S6553L"Remove this "null=True" flag.(Æî ûÿÿÿÿ8Ù£ñ³»1
+<python:S6553M"Remove this "null=True" flag.(ÖÄ²8Ù£ñ³»1
+Apython:S6553["Remove this "null=True" flag.(¨ŠÅÜûÿÿÿÿ8Ù£ñ³»1
+<python:S6553r"Remove this "null=True" flag.(«µ§Ş8Ù£ñ³»1
+<python:S6553y"Remove this "null=True" flag.( £ì8Ù£ñ³»1
+=python:S6553™"Remove this "null=True" flag.(Şü¨÷8Ù£ñ³»1
+Bpython:S6553š"Remove this "null=True" flag.(àØãûÿÿÿÿ8Ù£ñ³»1
+=python:S6553Ÿ"Remove this "null=True" flag.(ùêœñ8Ã©ù³»1
+Bpython:S6553 "Remove this "null=True" flag.(Ò„É…øÿÿÿÿ8Ã©ù³»1
+Ypython:S1135›"4Complete the task associated to this "TODO" comment.(˜ëƒĞûÿÿÿÿ8Ù£ñ³»1
+=python:S6553Í"Remove this "null=True" flag.(ä¬æ×8Ã©ù³»1
+=python:S6553Ï"Remove this "null=True" flag.(«µ§Ş8Ä©ù³»1
+Bpython:S6553Ù"Remove this "null=True" flag.(¸Ùòøÿÿÿÿ8Ä©ù³»1
+=python:S6553á"Remove this "null=True" flag.(ä¬æ×8Ä©ù³»1
+=python:S6553ã"Remove this "null=True" flag.(«µ§Ş8Ä©ù³»1
+Cpython:S125é"Remove this commented out code.(ˆ“ñ€ÿÿÿÿÿ8Ù£ñ³»1

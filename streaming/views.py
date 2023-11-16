@@ -1,67 +1,82 @@
 from random import random
 
+from django.contrib.sites import requests
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from rest_framework.generics import get_object_or_404
+
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 from streaming.forms import MovieForm, ActorForm
 from streaming.models import Actor, Movie, Show, Genre
 
+# JWT-REST authentication
+from rest_framework.decorators import permission_classes, api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.generics import get_object_or_404
+from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework import status
+
 CRUD_URL = 'streaming/api_crud.html'
 
 
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+    return render(request, 'streaming/signup.html', {'form': form})
+
+
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])
 def api_crud(request, model_type=None, entry_id=None):
     ModelForm = MovieForm if model_type == "movies" else ActorForm
     Model = Movie if model_type == "movies" else Actor
     movies = Movie.objects.all()
     actors = Actor.objects.all()
     mov_paginate = Paginator(movies, 6)
-    act_paginate = Paginator(movies, 6)
+    act_paginate = Paginator(actors, 6)
 
     instance = None
     if entry_id:
-        instance = get_object_or_404(Model, id=entry_id)  # Fetch the instance if entry_id is provided
+        instance = get_object_or_404(Model, id=entry_id)
 
-    # Handle POST request (For both Video and Actor creation)
-    if request.method == 'POST':
-        form = ModelForm(request.POST, request.FILES, instance=instance)
+    if request.method == 'GET':
+        form = ModelForm(instance=instance)
+        context = {
+            'form': form,
+            'movies': movies,
+            'actors': actors,
+            'entry_id': entry_id,
+            'mov_paginate': mov_paginate,
+            'act_paginate': act_paginate,
+        }
+        return render(request, CRUD_URL, context)
+
+    # For POST, PUT, DELETE, handle as API
+    elif request.method in ['POST', 'PUT']:
+        form = ModelForm(request.data, request.FILES, instance=instance)
         if form.is_valid():
             form.save()
-            return redirect(CRUD_URL)
+            message = 'Item created successfully' if request.method == 'POST' else 'Item updated successfully'
+            return Response({'message': message}, status=status.HTTP_200_OK)
+        else:
+            return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # Handle PUT request (For both Video and Actor updates)
-    elif request.method == 'PUT':
-        if not instance:
-            return HttpResponse("Invalid request. No ID provided for update.", status=400)
-        form = ModelForm(request.PUT, request.FILES, instance=instance)
-        if form.is_valid():
-            form.save()
-            return redirect(CRUD_URL)
-
-    # Handle DELETE request (For both Video and Actor deletion)
     elif request.method == 'DELETE':
         if not instance:
-            return HttpResponse("Invalid request. No ID provided for deletion.", status=400)
+            return Response({'error': 'Invalid request. No ID provided for deletion.'}, status=status.HTTP_400_BAD_REQUEST)
         instance.delete()
-        return redirect(CRUD_URL)
-
-    # Handle GET request
-    else:
-        form = ModelForm(instance=instance)
-
-    context = {
-        'form': form,
-        'movies': movies,
-        'actors': actors,
-        'entry_id': entry_id,
-        'mov_paginate': mov_paginate,
-        'act_paginate': act_paginate,
-    }
-
-    # Render the page with the form as context
-    return render(request, CRUD_URL, context)
+        return Response({'message': 'Item deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
 
 def api_index(request):
@@ -145,7 +160,7 @@ def tv_list(request):
 
 def genres(request):
     genres_ls = Genre.objects.all()
-    return render(request,'streaming/genres.html', {'genres_ls': genres_ls})
+    return render(request, 'streaming/genres.html', {'genres_ls': genres_ls})
 
 
 def genre_list(request, video_type=None, genre_pk=None):

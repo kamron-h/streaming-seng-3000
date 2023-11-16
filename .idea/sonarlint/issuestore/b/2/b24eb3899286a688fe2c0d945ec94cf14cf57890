@@ -1,7 +1,6 @@
 
-UWeb:AvoidCommentedOutCodeCheck("Remove this commented out code.(ØúÑ¯ùÿÿÿÿ8©íë·´1
-PWeb:AvoidCommentedOutCodeCheck."Remove this commented out code.(×˜Ÿ8öåĞÂ´1
-NWeb:ImgWithoutAltCheck;"%Add an "alt" attribute to this image.(•Ø•—8öåĞÂ´1
-NWeb:ImgWithoutAltCheck{"%Add an "alt" attribute to this image.(”¦Á8öåĞÂ´1
-`	Web:S5255X"DAdd an "aria-label" or "aria-labbelledby" attribute to this element.(¤–æ„8÷åĞÂ´1
-a	Web:S5255’"DAdd an "aria-label" or "aria-labbelledby" attribute to this element.(¤–æ„8÷åĞÂ´1
+PWeb:AvoidCommentedOutCodeCheck"Remove this commented out code.(µÉ…™8¶™¸‹¼1
+UWeb:AvoidCommentedOutCodeCheck)"Remove this commented out code.(ØúÑ¯ùÿÿÿÿ8©íë·´1
+PWeb:AvoidCommentedOutCodeCheck/"Remove this commented out code.(×˜Ÿ8öåĞÂ´1
+NWeb:ImgWithoutAltCheck<"%Add an "alt" attribute to this image.(•Ø•—8öåĞÂ´1
+NWeb:ImgWithoutAltCheckq"%Add an "alt" attribute to this image.(ÎıÒ8¿™¸‹¼1
