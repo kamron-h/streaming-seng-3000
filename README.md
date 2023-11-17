@@ -1,6 +1,14 @@
-# streaming-seng-3000
+# Software Architecture and Design<br>
+### Assignment: 
+## Create a C.R.U.D. API, demonstrate functionality, & display the API Endpoints.
+<br>
 
-# Software Architecture and Design: Assignment 1
+![Home View. Displaying a carousel of video movie & tv show options in the header, followed by a grid video choices](https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/541b28fb-15b4-4568-3dba-04f0e6466f00/300x300)
+![Home-Navigation View. Displaying the navigation list.](https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/9b470ba8-04ec-477d-35eb-c51fd0baa700/300x300)
+![Video Description View. Displaying a video frame of the selected video, following by the discription, and recommendations of similar films.](https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/e101026b-cf4a-4820-451f-e4ebf95aae00/300x300)
+![TV Show List View. Displaying a vertical grid of all tv shows in the database.](https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/c783b451-100d-43dd-fd81-bd7784547900/300x300)
+![API Home View. Displaying 2 button options for accessing API features.](https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/dd5f1599-3585-461c-27e3-5561137b4f00/300x300)
+![Register View. Displaying multiple input fields for registration requirements.](https://imagedelivery.net/5IPp1ww3GQHMKaYL6DWf-g/8292f2db-6860-4bda-8dd3-d0d51b385c00/300x300)
 
 ## Introduction
 This assignment focuses on demonstrating skills related to database modeling, web API creation, ORM capabilities, and version control using Git. 
