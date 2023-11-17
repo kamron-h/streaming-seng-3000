@@ -2,7 +2,6 @@ from django.urls import path, include
 from members import views
 from streaming import views as streaming_views
 
-
 urlpatterns = [
     # path('', views.register, name='register'),
     path('login/', views.login_user, name='login'),
