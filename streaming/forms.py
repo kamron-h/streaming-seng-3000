@@ -7,14 +7,15 @@ from streaming.models import Movie, Actor, Rating
 class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
-        fields = ('title', 'description', 'video', 'thumbnail')  # specify the fields from the Video model
+        fields = ('title', 'thumbnail_url', 'trailer_url')  # specify the fields from the Video model
+
 
 
 # Actor form
 class ActorForm(forms.ModelForm):
     class Meta:
         model = Actor
-        fields = ('name', 'profile_img')  # specify the fields from the Actor model
+        fields = ('name', 'profile_img_url')  # specify the fields from the Actor model
 
 
 # Rating form

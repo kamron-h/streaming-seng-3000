@@ -1,7 +1,8 @@
 from random import random
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.sites import requests
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -16,12 +17,25 @@ from streaming.models import Actor, Movie, Show, Genre
 from rest_framework.decorators import permission_classes, api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.generics import get_object_or_404
-from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework import status
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from .models import Movie, Actor
+from .forms import MovieForm, ActorForm
 
 CRUD_URL = 'streaming/api_crud.html'
+CRUD_URL_REDIRECT = 'streaming:api_crud'
+# GET_ACTOR_OBJ_404 = get_object_or_404(Actor, pk=pk)
+
+
+def create_auth_token(user):
+    token, created = Token.objects.get_or_create(user=user)
+    return token.key
+
+
+def get_user_token(user):
+    token = Token.objects.get(user=user)
+    return token.key
 
 
 def signup(request):
@@ -36,47 +50,110 @@ def signup(request):
     return render(request, 'streaming/signup.html', {'form': form})
 
 
-@api_view(['GET', 'POST', 'PUT', 'DELETE'])
-@permission_classes([IsAuthenticated])
-def api_crud(request, model_type=None, entry_id=None):
-    ModelForm = MovieForm if model_type == "movies" else ActorForm
-    Model = Movie if model_type == "movies" else Actor
-    movies = Movie.objects.all()
-    actors = Actor.objects.all()
-    mov_paginate = Paginator(movies, 6)
-    act_paginate = Paginator(actors, 6)
+def delete_movie(request, pk):
+    movie = get_object_or_404(Movie, pk=pk)
+    movie.delete()
+    return redirect(CRUD_URL_REDIRECT)
 
-    instance = None
-    if entry_id:
-        instance = get_object_or_404(Model, id=entry_id)
 
-    if request.method == 'GET':
-        form = ModelForm(instance=instance)
-        context = {
-            'form': form,
-            'movies': movies,
-            'actors': actors,
-            'entry_id': entry_id,
-            'mov_paginate': mov_paginate,
-            'act_paginate': act_paginate,
-        }
-        return render(request, CRUD_URL, context)
+# Create a function to handle update_movie requests
+def update_movie(request, pk):
+    movie = get_object_or_404(Movie, pk=pk)
+    instance = get_object_or_404(Movie, pk=pk) if pk else None
 
-    # For POST, PUT, DELETE, handle as API
-    elif request.method in ['POST', 'PUT']:
-        form = ModelForm(request.data, request.FILES, instance=instance)
+    if request.method == 'POST':
+        # Create a movie form instance with the submitted data and the movie instance
+        form = MovieForm(request.POST, request.FILES, instance=movie)
+        if not instance:
+            return HttpResponse("Invalid request. No ID provided for update.", status=400)
         if form.is_valid():
             form.save()
-            message = 'Item created successfully' if request.method == 'POST' else 'Item updated successfully'
-            return Response({'message': message}, status=status.HTTP_200_OK)
-        else:
-            return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
+            return redirect(CRUD_URL_REDIRECT)  # Redirect to a success URL
+        # Handle form errors in context below
+    else:
+        # Create a form instance for GET request to display the existing movie data
+        form = MovieForm(instance=movie)
+
+    return render(request, 'streaming/api/update_movie.html', {'form': form, 'movie': movie})
+
+
+def delete_actor(request, pk):
+    movie = get_object_or_404(Actor, pk=pk)
+    movie.delete()
+    return redirect(CRUD_URL_REDIRECT)
+
+
+# Create a function to handle update_movie requests
+def update_actor(request, pk):
+    actor = get_object_or_404(Actor, pk=pk)
+    instance = get_object_or_404(Actor, pk=pk) if pk else None
+
+    if request.method == 'POST':
+        # Create a movie form instance with the submitted data and the movie instance
+        form = ActorForm(request.POST, request.FILES, instance=actor)
+        if not instance:
+            return HttpResponse("Invalid request. No ID provided for update.", status=400)
+        if form.is_valid():
+            form.save()
+            return redirect(CRUD_URL_REDIRECT)  # Redirect to a success URL
+        # Handle form errors in context below
+    else:
+        # Create a form instance for GET request to display the existing movie data
+        form = ActorForm(instance=actor)
+
+    return render(request, 'streaming/api/update_actor.html', {'form': form, 'actor': actor})
+
+
+# @api_view(['GET', 'POST', 'PUT', 'DELETE'])
+# @permission_classes([IsAuthenticated])
+@login_required(login_url='members:login')
+def api_crud(request, entry_id=None):
+    movies = Movie.objects.all().order_by('uploaded_at')
+    actors = Actor.objects.all().order_by('created_at')
+    mov_paginate = Paginator(movies, 6 if movies.count() > 6 else movies.count())
+    act_paginate = Paginator(actors, 6 if actors.count() > 6 else actors.count())
+
+    movieInstance = get_object_or_404(Movie) if entry_id else None
+    actorInstance = get_object_or_404(Actor) if entry_id else None
+
+    token = Token.objects.get(user=request.user)
+
+    if request.method == 'POST':
+        movie_form = MovieForm(request.POST, request.FILES)
+        actor_form = ActorForm(request.POST, request.FILES)
+        if movie_form.is_valid():
+            movie_form.save()
+            return redirect(CRUD_URL)  # Redirect to a success URL
+        # Handle form errors in context below
+        if actor_form.is_valid():
+            actor_form.save()
+            return redirect(CRUD_URL)  # Redirect to a success URL
+        # Handle form errors in context below
 
     elif request.method == 'DELETE':
-        if not instance:
-            return Response({'error': 'Invalid request. No ID provided for deletion.'}, status=status.HTTP_400_BAD_REQUEST)
-        instance.delete()
-        return Response({'message': 'Item deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        if not movieInstance:
+            return HttpResponse("Invalid request. No ID provided for deletion.", status=400)
+        movieInstance.delete()
+        if not actorInstance:
+            return HttpResponse("Invalid request. No ID provided for deletion.", status=400)
+        actorInstance.delete()
+        return redirect(CRUD_URL)
+
+    else:  # GET request
+        movie_form = MovieForm(instance=movieInstance)
+        actor_form = ActorForm(instance=actorInstance)
+
+    context = {
+        'movie_form': movie_form,
+        'actor_form': actor_form,
+        'movies': mov_paginate.get_page(request.GET.get('page', 1)),
+        'actors': act_paginate.get_page(request.GET.get('page', 1)),
+        'entry_id': entry_id,
+        'token': token.key,
+        # 'Authorization': f' Auth',
+    }
+
+    return render(request, CRUD_URL, context)
 
 
 def api_index(request):
