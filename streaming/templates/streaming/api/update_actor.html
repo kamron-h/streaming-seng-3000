@@ -1,0 +1,54 @@
+{% extends 'streaming/home.html' %}
+{% load static %}
+{% block head %}
+<title>{{ actor.name }}</title>
+{% endblock %}
+{% block style %}
+<!--<link rel="stylesheet" href="{% static 'css/update_actor.css' %}">-->
+{% endblock %}
+{% block carousel %}
+{% endblock %}
+{% block content %}
+<div class="container">
+  <br><br><br>
+  <!-- Movie Input -->
+  <div>
+        <div class="movie-item">
+            <h4>Edit {{ actor.name }}</h4>
+            <p>{{ actor.bio }}</p>
+            <!-- Update Form -->
+            <form action="{% url 'streaming:actor_update' actor.id %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-warning">Update</button>
+            </form>
+        </div>
+    </div>
+  <br>
+  <br>
+  <div class="col-lg-12 col-xxl-12">
+        <div class="row" style="padding-top: 14px;">
+                <!-- Start: Actor Card -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                    <div class="card home-card">
+                        <div class="card-img square"><img src="{{ actor.thumbnail_url }}"></div>
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body video-card-body">
+                            <div class="row d-flex">
+                                <div class="col-sm-12 d-flex justify-content-center align-items-center actor-card-h" style="text-align: center;">
+                                    <!-- Start: Actor Card Title -->
+                                    <p class="home-card-title">{{ actor.name }}</p>
+                                    <!-- End: Actor Title -->
+                                </div>
+                                <div class="col-12 col-sm-12 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end home-card-bottom-badge">U.S.</span></div>
+                                <div class="col-12 col-sm-12 col-xl-12 col-xxl-12 d-flex justify-content-center align-items-center">
+                                    <p>{{ actor.id }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

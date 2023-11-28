@@ -1,7 +1,32 @@
-{% extends 'streaming/base.html' %}
+{% extends 'streaming/home.html' %}
 {% load static %}
 {% block head %}
 <title>API</title>
+<!--<script type="text/javascript">-->
+<!--    document.addEventListener("DOMContentLoaded", function() {-->
+<!--        const token = "{{ token }}";-->
+
+<!--        fetch('http://127.0.0.1:8000/api/crud/', {-->
+<!--            method: 'GET',-->
+<!--            headers: {-->
+<!--                'Authorization': 'Token ' + token-->
+<!--            }-->
+<!--        })-->
+<!--        .then(response => {-->
+<!--            if (!response.ok) {-->
+<!--                throw new Error('Network response was not ok');-->
+<!--            }-->
+<!--            return response.json();-->
+<!--        })-->
+<!--        .then(data => {-->
+<!--            console.log(data);-->
+<!--            // Process the data...-->
+<!--        })-->
+<!--        .catch(error => {-->
+<!--            console.error('Error:', error);-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 {% endblock %}
 {% block styles %}
 {% endblock %}
@@ -19,9 +44,53 @@
             </div>
         </div>
     </header>
+<!--    <div class="container">-->
+<!--        <h1>Movie CRUD Operations</h1>-->
+
+<!--        &lt;!&ndash; Create and Update Form &ndash;&gt;-->
+<!--        <div>-->
+<!--            <h2>{% if entry_id %}Update Movie{% else %}Create New Movie{% endif %}</h2>-->
+<!--            <form method="post" enctype="multipart/form-data">-->
+<!--                {% csrf_token %}-->
+<!--                {{ form.as_p }}-->
+<!--                <button type="submit" class="btn btn-primary">{% if entry_id %}Update{% else %}Create{% endif %}</button>-->
+<!--            </form>-->
+<!--        </div>-->
+
+<!--        <hr>-->
+
+<!--        &lt;!&ndash; List of Movies &ndash;&gt;-->
+<!--        <div>-->
+<!--            <h2>Movie List</h2>-->
+<!--            {% for movie in movies %}-->
+<!--            <div class="movie-item">-->
+<!--                <h3>{{ movie.title }}</h3>-->
+<!--                <p>{{ movie.description }}</p>-->
+<!--                &lt;!&ndash; Update Link &ndash;&gt;-->
+<!--                <a href="{% url 'streaming:movie_update' movie.id %}" class="btn btn-secondary">Edit</a>-->
+<!--                &lt;!&ndash; Delete Form &ndash;&gt;-->
+<!--                <form action="{% url 'streaming:movie_delete' movie.id %}" method="post" style="display: inline;">-->
+<!--                    {% csrf_token %}-->
+<!--                    <input type="hidden" name="_method" value="DELETE">-->
+<!--                    <button type="submit" class="btn btn-danger">Delete</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            {% empty %}-->
+<!--            <p>No movies available.</p>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--    </div>-->
+
     <div class="container" style="margin-top: 3em">
             <div class="row">
                 <div class="col-lg-12 text-center">
+                    {% if token %}
+                    <h5>Auth: </h5><p>{{ Authorization }}</p>
+                    {% endif %}
+                    {% if token %}
+                    <h5>JSON Web Token (JWT): </h5><p>{{ token }}</p>
+                    {% endif %}
+                    <br><br>
                     <h2 class="text-uppercase section-heading">Crud operations</h2>
                     <h3 class="text-muted section-subheading">Use the resources below to use our API</h3>
                 </div>
@@ -31,19 +100,15 @@
                     <h1 class="d-flex justify-content-center crud-heading">Movies</h1>
                     <p></p>
 
-                    <h4 class="crud-subhead" style="margin-top: 1em">Create New Movie</h4>
-                    <form method="post" action="{% url 'streaming:movies-list' %}" enctype="multipart/form-data">
-                        {% csrf_token %} {{ movie_form.as_p }}
-                        <button class="btn-primary crud-btn" type="submit">Create Movie</button>
-                    </form>
-
-                    <h4 class="crud-subhead" style="margin-top: 1em"><span style="color: rgb(0, 0, 0);">Update Existing Movie</span></h4>
-<!--                    <input type="text" class="crud-input" placeholder="Enter Video #ID">-->
-                    <form method="post" action="/api/index/movies/{{ movie.id }}">
-                        {% csrf_token %}
-                        {{ movie_form.as_p }}
-                        <button type="submit">Update</button>
-                    </form>
+                    <!-- Create and Update Form -->
+                    <div>
+                        <h4>Create New Movie</h4>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ movie_form.as_p }}
+                            <button type="submit" class="btn btn-warning">Create</button>
+                        </form>
+                    </div>
 <!--                    <button class="btn btn-primary crud-btn" type="button">Update</button>-->
                     <h4 class="crud-subhead" style="margin-top: 1em"><span style="color: rgb(0, 0, 0);">Delete a Movie</span></h4><!-- Start: List Group Videos -->
                     <div>
@@ -53,33 +118,35 @@
                                     {% for movie in movies %}
                                     <!-- Start: Video Card -->
                                     <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2">
-
-                                        <form method="POST" action="/api/index/movies/{{ movie.id }}/">
-                                            {% csrf_token %}
-                                            <div class="card video-card">
-                                                <div class="card-img"><img src="{{ movie.thumbnail_url }}"></div>
-                                                <div class="card-img-overlay">
-                                                    <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
-                                                </div>
-                                                <div class="card-body video-card-body">
-                                                    <div class="row d-flex">
-                                                        <div class="col-sm-12">
-                                                            <!-- Start: Card Title -->
-                                                            <p class="video-card-title">{{ movie.title }}</p><!-- End: Card Title -->
-                                                        </div>
-                                                        <div class="col-8 col-sm-9">
-                                                            <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
-                                                                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
-                                                                </svg>&nbsp; 87m</p>
-                                                        </div>
-                                                        <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
+                                        <div class="card video-card">
+                                            <div class="card-img"><img src="{{ movie.thumbnail_url }}"></div>
+                                            <div class="card-img-overlay">
+                                                <h6 class="text-start" style="text-align: left;"><span class="badge bg-primary video-card-top-badge">HD</span></h6>
+                                            </div>
+                                            <div class="card-body video-card-body">
+                                                <div class="row d-flex">
+                                                    <div class="col-sm-12">
+                                                        <!-- Start: Card Title -->
+                                                        <p class="video-card-title">{{ movie.title }}</p><!-- End: Card Title -->
                                                     </div>
+                                                    <div class="col-8 col-sm-9">
+                                                        <p class="video-card-p">2023&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-dot">
+                                                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path>
+                                                            </svg>&nbsp; 87m</p>
+                                                    </div>
+                                                    <div class="col-4 col-sm-3 d-flex justify-content-center align-items-center"><span class="badge bg-primary d-flex justify-content-center align-items-end video-card-bottom-badge">Movie</span></div>
                                                 </div>
                                             </div>
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <button style="width: 100%;margin-bottom: 1em;background-color: darkorange; border-radius: 4px" type="submit">Delete Video {{ movie.id }}</button>
-                                        </form>
                                         </div>
+                                        <!-- Update Link -->
+                                        <a href="{% url 'streaming:movie_update' movie.id %}" class="btn btn-secondary">Edit</a>
+                                        <!-- Delete Form -->
+                                        <form action="{% url 'streaming:movie_delete' movie.id %}" method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
                                     <!-- End: Video Card -->
                                     {% endfor %}
                                 {% else %}
@@ -96,20 +163,23 @@
                     <h1 class="d-flex justify-content-center crud-heading"><strong><span style="color: rgb(0, 0, 0);">Actors</span></strong></h1>
                     <p></p>
                     <h4 class="crud-subhead">Add New Actor</h4>
-                    <form method="post" action="{% url 'streaming:actors-list' %}" enctype="multipart/form-data">
-                        {% csrf_token %} {{ actor_form.as_p }}
-                        <button class="btn-primary crud-btn" type="submit">Create Actor</button>
-                    </form>
-                    <h4 class="crud-subhead" style="margin-top: 1em"><span style="color: rgb(0, 0, 0)">Update Existing Actor</span></h4><input type="text" class="crud-input" placeholder="Enter Actor #ID"><button class="btn btn-primary crud-btn" style="margin-left: 1em" type="button">Update</button>
-                    <h4 class="crud-subhead" style="margin-top: 1em"><span style="color: rgb(0, 0, 0);">Delete an Actor</span></h4><!-- Start: List Group Videos -->
+
+                    <!-- Create and Update Form -->
+                    <div>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ actor_form.as_p }}
+                            <button type="submit" class="btn btn-warning">Add Actor</button>
+                        </form>
+                    </div>
                     <div>
                         <div class="col-lg-12 col-xxl-12">
                             <div class="row" style="padding-top: 14px;">
-                                {% if actors.exists %}
+                                {% if actors %}
                                     {% for actor in actors %}
                                     <!-- Start: Actor Card -->
                                     <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-                                        <div class="card home-card">
+                                        <div class="card home-card" style="margin-bottom: 0.5em">
                                             <div class="card-img square"><img src="{{ actor.thumbnail_url }}"></div>
                                             <div class="card-img-overlay"></div>
                                             <div class="card-body video-card-body">
@@ -126,6 +196,16 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div style="margin-left: auto;margin-right: auto">
+                                            <!-- Update Link -->
+                                            <a href="{% url 'streaming:actor_update' actor.id %}" class="btn btn-secondary">Edit</a>
+                                            <!-- Delete Form -->
+                                            <form action="{% url 'streaming:actor_delete' actor.id %}" method="post" style="display: inline;">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
                                     </div>
                                     <!-- End: Actor Card -->
                                     {% endfor %}
@@ -140,5 +220,4 @@
                 <div class="col"></div>
             </div>
         </div>
-
 {% endblock %}

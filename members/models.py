@@ -7,10 +7,10 @@ from streaming import models
 
 # Create your models here.
 
-# Create a Member profile automatically when registering new user***
+# Create an 'Account' profile automatically when registering new user***
 def create_profile(sender, instance, created, **kwargs):
     if created:
-        user_profile = streaming.models.Member(
+        user_profile = streaming.models.Account(
             user=instance,
             # websites = [],
             # verified = False,

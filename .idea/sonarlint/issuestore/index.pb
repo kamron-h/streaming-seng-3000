@@ -108,3 +108,9 @@ R
 "public/static/accounts/js/login.js,4/4/44a282de1bc71c81065fadf289d9465c2591db8a
 [
 +public/static/accounts/js/api_crud_token.js,3/8/383e3c2e45d2eaac002e47b1a1c08608fadcd62a
+@
+members/tests.py,c/3/c351058ab8bd0a8d289abde751d463906976b5e9
+c
+3streaming/templates/streaming/api/update_movie.html,a/1/a190fdb09f9588c2fae890fc08ebc647da0558a3
+c
+3streaming/templates/streaming/api/update_actor.html,3/6/36e909e4f281eced713ba3cead455db3fe76e114

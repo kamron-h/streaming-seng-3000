@@ -1,5 +1,9 @@
 
-tpython:S117+"VRename this local variable "Model" to match the regular expression ^[_a-z][a-z0-9_]*$.(ªíÂú8şÙŸ‹¼1
-}python:S117*"ZRename this local variable "ModelForm" to match the regular expression ^[_a-z][a-z0-9_]*$.(é†Úºúÿÿÿÿ8€ÚŸ‹¼1
-Bpython:S125o"Remove this commented out code.(ù“òùÿÿÿÿ8„ÚŸ‹¼1
-Cpython:S125è"Remove this commented out code.(÷ËÏûÿÿÿÿ8…ÚŸ‹¼1
+Upython:S1481 "1Replace unused local variable "created" with "_".(ÑË‚şÿÿÿÿ8í“Šì¾1
+=python:S125"Remove this commented out code.(Åâ®‘8¹†âì¾1
+Spython:S11725"/Remove the unused function parameter "request".(ÏŠëÿÿÿÿÿ8î“Šì¾1
+Spython:S1172P"/Remove the unused function parameter "request".(…ñİÿÿÿÿÿ8€»Öì¾1
+{python:S117u"^Rename this local variable "actorInstance" to match the regular expression ^[_a-z][a-z0-9_]*$.(ãñl8ª¦Ÿí¾1
+|python:S117t"^Rename this local variable "movieInstance" to match the regular expression ^[_a-z][a-z0-9_]*$.(ÍÊÆ¢8²Âí¾1
+Cpython:S125¼"Remove this commented out code.(ù“òùÿÿÿÿ8¶Ñ’í¾1
+Cpython:S125µ"Remove this commented out code.(÷ËÏûÿÿÿÿ8¶Ñ’í¾1
